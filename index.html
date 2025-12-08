@@ -59,7 +59,13 @@
         </header>
 
         <nav class="navbar">
-            <div class="container">
+            <div class="nav-mobile">
+                <button class="hamburger" id="hamburger">
+                    &#9776;
+                </button>
+            </div>
+
+            <div class="container" id="nav-links">
                 <a href="#popular">Most Popular</a>
                 <a href="#noodlesoup">Noodle Soup</a>
                 <a href="#satay">Satay Dishes</a>
@@ -68,7 +74,7 @@
                 <a href="#specialdishes">Special Dishes</a>
                 <a href="#sides">Sides</a>
                 <a href="#contact">Contact</a>
-                <a id=navorderbutton
+                <a id="navorderbutton"
                     href="https://www.ubereats.com/nz/store/dunedin-noodle-house/Esfn-eB0Wha3BwtgkDS6VQ?surfaceName="
                     target="_blank" class="nav-order-btn">Order Online</a>
             </div>
@@ -79,6 +85,13 @@
             <div class="container">
                 <h2>Most Popular</h2>
                 <div class="menu-grid">
+                    <div class="menu-item">
+                        <img src="images/placeholder.png" alt="Chicken Noodle Soup">
+                        <h3>Chicken Noodle Soup</h3>
+                        <p>Cambodian noodle soup with rice noodles, bean sprouts, crispy garlic and spring onions. (All
+                            meals are served large)</p>
+                        <span>NZ$17.60 • 98% (84)</span>
+                    </div>
 
                     <div class="menu-item">
                         <img src="images/placeholder.png" alt="Chicken Satay">
@@ -90,43 +103,6 @@
                     </div>
 
                     <div class="menu-item">
-                        <img src="images/placeholder.png" alt="Sweet and Sour Pork">
-                        <h3>Sweet and Sour Pork</h3>
-                        <p>Deep fried Sweet and Sour Pork served on rice. (All meals are served large)</p>
-                        <span>NZ$24.50 • 81% (93)</span>
-                    </div>
-
-                    <div class="menu-item">
-                        <img src="images/placeholder.png" alt="Large Vegetarian Spring Rolls">
-                        <h3>Large Vegetarian Spring Rolls</h3>
-                        <p>3 x large vege spring rolls</p>
-                        <span>NZ$10.00 • 94% (53)</span>
-                    </div>
-
-                    <div class="menu-item">
-                        <img src="images/placeholder.png" alt="Pad See Ew">
-                        <h3>Pad See Ew</h3>
-                        <p>Wide rice noodles served with vegetables, special sauce, pepper and your choice of meat</p>
-                        <span>NZ$24.10 • 89% (38)</span>
-                    </div>
-
-                    <div class="menu-item">
-                        <img src="images/placeholder.png" alt="Chicken Chow Mein">
-                        <h3>Chicken Chow Mein</h3>
-                        <p>Cambodia stir fried egg noodles with vegetables. Garnished with spring onions. (All meals are
-                            served large)</p>
-                        <span>NZ$21.50 • 92% (42)</span>
-                    </div>
-
-                    <div class="menu-item">
-                        <img src="images/placeholder.png" alt="Honey BBQ Pork Fried Rice">
-                        <h3>Honey BBQ Pork Fried Rice</h3>
-                        <p>Stir fried rice with vegetables. Garnished with spring onions. (All meals are served large)
-                        </p>
-                        <span>NZ$24.10 • 76% (34)</span>
-                    </div>
-
-                    <div class="menu-item">
                         <img src="images/placeholder.png" alt="Meurs Satay Burger">
                         <h3>Meurs Satay Burger</h3>
                         <p>Served with peanut satay sauce on a sesame seed bun.</p>
@@ -134,24 +110,9 @@
                     </div>
 
                     <div class="menu-item">
-                        <img src="images/placeholder.png" alt="Chicken Noodle Soup">
-                        <h3>Chicken Noodle Soup</h3>
-                        <p>Cambodian noodle soup with rice noodles, bean sprouts, crispy garlic and spring onions. (All
-                            meals are served large)</p>
-                        <span>NZ$17.60 • 98% (84)</span>
-                    </div>
-
-                    <div class="menu-item">
-                        <img src="images/placeholder.png" alt="Pud Khee Mao Stir Fried Noodles">
-                        <h3>Pud Khee Mao Stir Fried Noodles</h3>
-                        <p>Served with vegetables, special Cambodian sauce, and your choice of meat.</p>
-                        <span>NZ$24.10 • 78% (19)</span>
-                    </div>
-
-                    <div class="menu-item">
-                        <img src="images/placeholder.png" alt="Beef Satay">
-                        <h3>Beef Satay</h3>
-                        <p>Dish made with Cambodian mild curry coconut, peanut sauce served on rice. (All meals are
+                        <img src="images/placeholder.png" alt="Laksa">
+                        <h3>Laksa</h3>
+                        <p>Dish made with Cambodian mild curry served on rice noodles. (All meals are
                             served
                             large)</p>
                         <span>NZ$18.90 • 98% (60)</span>
@@ -1221,6 +1182,34 @@
                 </div>
             </div>
         </footer>
+        <script>
+            // Toggle mobile menu
+            document.getElementById('hamburger').addEventListener('click', function () {
+                document.getElementById('nav-links').classList.toggle('show');
+            });
+
+            document.querySelectorAll('.navbar a[href^="#"]').forEach(link => {
+                link.addEventListener('click', function (e) {
+                    e.preventDefault();
+
+                    const target = document.querySelector(this.getAttribute('href'));
+                    const navbarHeight = document.querySelector('.navbar').offsetHeight;
+
+                    const y = target.getBoundingClientRect().top + window.pageYOffset - navbarHeight - 10;
+
+                    window.scrollTo({
+                        top: y,
+                        behavior: 'smooth'
+                    });
+
+                    // Close mobile menu after clicking
+                    document.getElementById('nav-links').classList.remove('show');
+                });
+            });
+
+
+
+        </script>
 
     </body>
 

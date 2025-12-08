@@ -178,6 +178,42 @@ body {
     }
 }
 
+/* Mobile hamburger */
+.nav-mobile {
+    display: none;
+    background: var(--primary-blue);
+    padding: 10px 16px;
+}
+
+.hamburger {
+    font-size: 28px;
+    background: none;
+    border: none;
+    color: white;
+    cursor: pointer;
+}
+
+/* Hide links on mobile */
+@media (max-width: 700px) {
+    .navbar .container {
+        display: none;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 12px;
+        padding: 12px 20px;
+    }
+
+    .navbar .container.show {
+        display: flex;
+    }
+
+    .nav-mobile {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+}
+
 
 /* Menu sections */
 
@@ -412,5 +448,13 @@ body {
 
     .menu-item img {
         height: 150px;
+    }
+}
+
+/* Ensure section titles land correctly in mobile view */
+@media (max-width: 600px) {
+    .menu-section {
+        scroll-margin-top: 140px;
+        /* adjust based on your mobile navbar height */
     }
 }
