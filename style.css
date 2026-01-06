@@ -140,8 +140,6 @@ body {
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.15);
 }
 
-
-
 .navbar .container {
     display: flex;
     justify-content: center;
@@ -162,20 +160,6 @@ body {
 
 #navorderbutton {
     color: #c92c37;
-}
-
-@media (max-width: 600px) {
-    .navbar .container {
-        justify-content: flex-start;
-        overflow-x: auto;
-        -webkit-overflow-scrolling: touch;
-    }
-
-    .navbar a {
-        padding: 6px 0;
-        font-size: 0.9rem;
-        white-space: nowrap;
-    }
 }
 
 /* Mobile hamburger */
@@ -200,7 +184,7 @@ body {
         flex-direction: column;
         align-items: flex-start;
         gap: 12px;
-        padding: 12px 20px;
+        padding: 12px 16px;
     }
 
     .navbar .container.show {
@@ -214,44 +198,16 @@ body {
     }
 }
 
-
 /* Menu sections */
 
 .menu-section {
     padding: 60px 20px;
     text-align: center;
     scroll-margin-top: 80px;
-    /* adjust if your navbar height changes */
 }
 
 .menu-section.alt {
     background: var(--light-gray);
-}
-
-@media (max-width: 600px) {
-    .menu-section {
-        padding: 32px 16px;
-    }
-
-    .menu-section h2 {
-        font-size: 1.6rem;
-        margin-bottom: 20px;
-        text-align: left;
-    }
-}
-
-@media (max-width: 600px) {
-    #popular h2 {
-        text-align: center;
-    }
-
-    #specialdishes h2 {
-        text-align: center;
-    }
-
-    #sides h3 {
-        text-align: left;
-    }
 }
 
 .menu-section h2 {
@@ -260,7 +216,7 @@ body {
     font-size: 2rem;
 }
 
-/* Card grid (Most popular, Satay, Special, etc.) */
+/* Card grid (Most popular, etc.) */
 
 .menu-grid {
     display: grid;
@@ -298,7 +254,7 @@ body {
     display: block;
 }
 
-/* Two-column list layout (Fried noodles, Rice, Sides & Beverages) */
+/* Two-column list layout */
 
 .two-column-menu {
     display: grid;
@@ -356,20 +312,11 @@ body {
         white-space: normal;
     }
 
-    .item-name {
-        text-align: left;
-        font-weight: 600;
-        color: var(--primary-blue);
-    }
-
+    .item-name,
     .item-desc {
         text-align: left;
-        font-size: 0.9rem;
-        color: #666;
-        margin-top: 2px;
     }
 }
-
 
 .item-price {
     color: var(--primary-red);
@@ -451,10 +398,98 @@ body {
     }
 }
 
-/* Ensure section titles land correctly in mobile view */
-@media (max-width: 600px) {
+/* ---------------------------
+   Mobile accordion sections
+   --------------------------- */
+
+.section-title {
+    outline: none;
+}
+
+@media (max-width: 700px) {
+
+    /* tighter sections + edge-to-edge */
     .menu-section {
-        scroll-margin-top: 140px;
-        /* adjust based on your mobile navbar height */
+        padding: 6px 0;
+        /* MUCH closer together */
+        text-align: left;
+        scroll-margin-top: 120px;
+        /* sticky nav offset */
+    }
+
+    .menu-section .container {
+        max-width: none;
+        padding: 0;
+        /* make headers reach screen edge */
+    }
+
+    /* accordion header styling */
+    .collapsible-section .section-title {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+
+        padding: 10px 16px;
+        /* smaller, tighter */
+        margin: 0;
+        /* remove big h2 spacing */
+        border-radius: 0;
+        /* edge-to-edge slab */
+        background: rgba(0, 0, 0, 0.04);
+
+        cursor: pointer;
+        user-select: none;
+
+        font-size: 1.05rem;
+        /* smaller label */
+        font-weight: 700;
+    }
+
+    .collapsible-section .section-title:focus {
+        box-shadow: 0 0 0 3px rgba(230, 57, 70, 0.25);
+    }
+
+    .collapsible-section .section-title::after {
+        content: "▾";
+        font-size: 0.95rem;
+        /* smaller chevron */
+        color: var(--primary-blue);
+        margin-left: 12px;
+        transition: transform 0.2s ease;
+    }
+
+    .collapsible-section.is-open .section-title::after {
+        transform: rotate(180deg);
+    }
+
+    /* collapse content by default */
+    .collapsible-section .section-content {
+        display: none;
+        padding: 10px 16px 16px;
+        /* content has breathing room */
+    }
+
+    .collapsible-section.is-open .section-content {
+        display: block;
+    }
+
+    /* tighten headers inside content */
+    .column-title {
+        font-size: 1.2rem;
+        margin-bottom: 10px;
+        text-align: left;
+        padding: 0 0;
+    }
+
+    /* slightly tighter list rows */
+    .list-item {
+        padding: 10px 0;
+    }
+}
+
+/* On desktop: keep normal layout (everything open) */
+@media (min-width: 701px) {
+    .collapsible-section .section-content {
+        display: block;
     }
 }
