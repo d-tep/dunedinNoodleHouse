@@ -443,6 +443,10 @@ body {
         font-size: 1.05rem;
         /* smaller label */
         font-weight: 700;
+
+        /* iOS: allow scroll gestures to start here */
+        touch-action: pan-y;
+        -webkit-tap-highlight-color: transparent;
     }
 
     .collapsible-section .section-title:focus {

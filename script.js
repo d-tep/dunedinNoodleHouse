@@ -29,7 +29,7 @@ function closeAllSections(exceptSection = null) {
 
 function openSection(sectionEl) {
     if (!sectionEl) return;
-    closeAllSections(sectionEl);
+    closeAllSections(sectionEl); // <-- remove this line if you don't want auto-collapse others
     sectionEl.classList.add('is-open');
     const title = sectionEl.querySelector('.section-title');
     if (title) title.setAttribute('aria-expanded', 'true');
@@ -68,13 +68,72 @@ function initAccordionState() {
     }
 }
 
-// Click/keyboard on section titles
+// ---------- iOS-safe tap-only accordion headers ----------
+const MOVE_THRESHOLD = 24;    // px (higher so fast flicks never count as taps)
+const SCROLL_THRESHOLD = 12;  // px
+
+let justHandledTouch = false;
+
 document.querySelectorAll('.collapsible-section .section-title').forEach(titleEl => {
+    // Block ghost click on iOS: on mobile we NEVER toggle via click
+    titleEl.addEventListener('click', (e) => {
+        if (!isMobile()) return; // desktop click works (handled below)
+        e.preventDefault();
+        e.stopPropagation();
+        return false;
+    }, { capture: true });
+
+    // Desktop click toggling
     titleEl.addEventListener('click', () => {
-        if (!isMobile()) return;
+        if (isMobile()) return;
         toggleSection(titleEl.closest('.collapsible-section'));
     });
 
+    // Touch tap detection
+    let startX = 0;
+    let startY = 0;
+    let startScrollY = 0;
+    let moved = false;
+
+    titleEl.addEventListener('touchstart', (e) => {
+        if (!isMobile()) return;
+
+        const t = e.touches[0];
+        startX = t.clientX;
+        startY = t.clientY;
+        startScrollY = window.scrollY;
+        moved = false;
+    }, { passive: true });
+
+    titleEl.addEventListener('touchmove', (e) => {
+        if (!isMobile()) return;
+
+        const t = e.touches[0];
+        const dx = Math.abs(t.clientX - startX);
+        const dy = Math.abs(t.clientY - startY);
+
+        if (dx > MOVE_THRESHOLD || dy > MOVE_THRESHOLD) moved = true;
+    }, { passive: true });
+
+    titleEl.addEventListener('touchend', (e) => {
+        if (!isMobile()) return;
+
+        const scrolled = Math.abs(window.scrollY - startScrollY) > SCROLL_THRESHOLD;
+        if (moved || scrolled) return;
+
+        // This was a real tap
+        e.preventDefault(); // prevents ghost click
+        justHandledTouch = true;
+        setTimeout(() => { justHandledTouch = false; }, 650);
+
+        toggleSection(titleEl.closest('.collapsible-section'));
+    }, { passive: false });
+
+    titleEl.addEventListener('touchcancel', () => {
+        moved = true;
+    }, { passive: true });
+
+    // Keyboard
     titleEl.addEventListener('keydown', (e) => {
         if (!isMobile()) return;
         if (e.key === 'Enter' || e.key === ' ') {
