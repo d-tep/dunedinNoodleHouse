@@ -66,6 +66,10 @@ body {
     font-size: 1.1rem;
 }
 
+.hidden {
+    display: none;
+}
+
 .hero-center .phone-label {
     font-size: 1.4rem;
     margin-bottom: 2px;
