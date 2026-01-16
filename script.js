@@ -1,6 +1,6 @@
 // ---------- Mobile nav ----------
-document.getElementById('hamburger').addEventListener('click', function () {
-    document.getElementById('nav-links').classList.toggle('show');
+document.getElementById('hamburger')?.addEventListener('click', function () {
+    document.getElementById('nav-links')?.classList.toggle('show');
 });
 
 // ---------- Accordion + scroll helpers ----------
@@ -9,7 +9,7 @@ function isMobile() {
 }
 
 function scrollSectionTitleIntoView(sectionEl) {
-    const titleEl = sectionEl.querySelector('.section-title');
+    const titleEl = sectionEl?.querySelector('.section-title');
     if (!titleEl) return;
 
     const navbarHeight = document.querySelector('.navbar')?.offsetHeight || 0;
@@ -29,36 +29,42 @@ function closeAllSections(exceptSection = null) {
 
 function openSection(sectionEl) {
     if (!sectionEl) return;
-    closeAllSections(sectionEl); // <-- remove this line if you don't want auto-collapse others
+
+    // Auto-collapse others (remove this line if you want multiple open)
+    closeAllSections(sectionEl);
+
     sectionEl.classList.add('is-open');
     const title = sectionEl.querySelector('.section-title');
     if (title) title.setAttribute('aria-expanded', 'true');
+
     scrollSectionTitleIntoView(sectionEl);
+}
+
+function closeSection(sectionEl) {
+    if (!sectionEl) return;
+    sectionEl.classList.remove('is-open');
+    const title = sectionEl.querySelector('.section-title');
+    if (title) title.setAttribute('aria-expanded', 'false');
 }
 
 function toggleSection(sectionEl) {
     if (!sectionEl) return;
-    const isOpen = sectionEl.classList.contains('is-open');
-
-    if (!isOpen) {
-        openSection(sectionEl);
-    } else {
-        sectionEl.classList.remove('is-open');
-        const title = sectionEl.querySelector('.section-title');
-        if (title) title.setAttribute('aria-expanded', 'false');
-    }
+    const open = sectionEl.classList.contains('is-open');
+    if (open) closeSection(sectionEl);
+    else openSection(sectionEl);
 }
 
 function initAccordionState() {
     const sections = document.querySelectorAll('.collapsible-section');
 
+    // Reset
     sections.forEach(sec => {
         sec.classList.remove('is-open');
         const title = sec.querySelector('.section-title');
         if (title) title.setAttribute('aria-expanded', 'false');
     });
 
-    // On desktop, keep everything open
+    // Desktop: keep everything open
     if (!isMobile()) {
         sections.forEach(sec => {
             sec.classList.add('is-open');
@@ -68,72 +74,47 @@ function initAccordionState() {
     }
 }
 
-// ---------- iOS-safe tap-only accordion headers ----------
-const MOVE_THRESHOLD = 24;    // px (higher so fast flicks never count as taps)
-const SCROLL_THRESHOLD = 12;  // px
+// ---------- iOS FIX: prevent flick-scroll from toggling accordion ----------
+let touchIsScrolling = false;
 
-let justHandledTouch = false;
+// Start of any touch gesture -> assume not scrolling yet
+window.addEventListener('touchstart', () => {
+    touchIsScrolling = false;
+}, { passive: true });
 
+// If any touchmove happens anywhere, user is scrolling (works for fast flicks)
+window.addEventListener('touchmove', () => {
+    touchIsScrolling = true;
+}, { passive: true });
+
+// Small cooldown after touch ends
+window.addEventListener('touchend', () => {
+    setTimeout(() => {
+        touchIsScrolling = false;
+    }, 180);
+}, { passive: true });
+
+// Accordion title handlers (entire header is clickable)
 document.querySelectorAll('.collapsible-section .section-title').forEach(titleEl => {
-    // Block ghost click on iOS: on mobile we NEVER toggle via click
+    // Block iOS ghost clicks on mobile
     titleEl.addEventListener('click', (e) => {
-        if (!isMobile()) return; // desktop click works (handled below)
+        if (!isMobile()) return; // desktop ignores click anyway
         e.preventDefault();
         e.stopPropagation();
-        return false;
-    }, { capture: true });
+    }, true);
 
-    // Desktop click toggling
-    titleEl.addEventListener('click', () => {
-        if (isMobile()) return;
-        toggleSection(titleEl.closest('.collapsible-section'));
-    });
-
-    // Touch tap detection
-    let startX = 0;
-    let startY = 0;
-    let startScrollY = 0;
-    let moved = false;
-
-    titleEl.addEventListener('touchstart', (e) => {
-        if (!isMobile()) return;
-
-        const t = e.touches[0];
-        startX = t.clientX;
-        startY = t.clientY;
-        startScrollY = window.scrollY;
-        moved = false;
-    }, { passive: true });
-
-    titleEl.addEventListener('touchmove', (e) => {
-        if (!isMobile()) return;
-
-        const t = e.touches[0];
-        const dx = Math.abs(t.clientX - startX);
-        const dy = Math.abs(t.clientY - startY);
-
-        if (dx > MOVE_THRESHOLD || dy > MOVE_THRESHOLD) moved = true;
-    }, { passive: true });
-
+    // Use touchend for real taps only (no scrolling)
     titleEl.addEventListener('touchend', (e) => {
         if (!isMobile()) return;
 
-        const scrolled = Math.abs(window.scrollY - startScrollY) > SCROLL_THRESHOLD;
-        if (moved || scrolled) return;
+        // If any scrolling happened during this touch gesture, do NOT toggle
+        if (touchIsScrolling) return;
 
-        // This was a real tap
-        e.preventDefault(); // prevents ghost click
-        justHandledTouch = true;
-        setTimeout(() => { justHandledTouch = false; }, 650);
-
+        e.preventDefault();
         toggleSection(titleEl.closest('.collapsible-section'));
     }, { passive: false });
 
-    titleEl.addEventListener('touchcancel', () => {
-        moved = true;
-    }, { passive: true });
-
-    // Keyboard
+    // Keyboard accessibility (mobile focus + Enter/Space)
     titleEl.addEventListener('keydown', (e) => {
         if (!isMobile()) return;
         if (e.key === 'Enter' || e.key === ' ') {
@@ -143,7 +124,7 @@ document.querySelectorAll('.collapsible-section .section-title').forEach(titleEl
     });
 });
 
-// Nav click: open the section (accordion) then scroll to title
+// ---------- Navbar links: open + scroll ----------
 document.querySelectorAll('.navbar a[href^="#"]').forEach(link => {
     link.addEventListener('click', function (e) {
         e.preventDefault();
@@ -157,9 +138,10 @@ document.querySelectorAll('.navbar a[href^="#"]').forEach(link => {
             scrollSectionTitleIntoView(target);
         }
 
-        document.getElementById('nav-links').classList.remove('show');
+        document.getElementById('nav-links')?.classList.remove('show');
     });
 });
 
+// Init
 initAccordionState();
 window.addEventListener('resize', initAccordionState);
