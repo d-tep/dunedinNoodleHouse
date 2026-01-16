@@ -1,124 +1,161 @@
-// ---------- Mobile nav ----------
-document.getElementById('hamburger').addEventListener('click', function () {
-    document.getElementById('nav-links').classList.toggle('show');
-});
-
-// ---------- Accordion + scroll helpers ----------
+// -----------------------------
+// Helpers
+// -----------------------------
 function isMobile() {
-    return window.matchMedia('(max-width: 700px)').matches;
+    return window.matchMedia("(max-width: 700px)").matches;
 }
 
-function scrollSectionTitleIntoView(sectionEl) {
-    const titleEl = sectionEl.querySelector('.section-title');
-    if (!titleEl) return;
+function getHeaderEl(sectionEl) {
+    return sectionEl?.querySelector(".section-header");
+}
 
-    const navbarHeight = document.querySelector('.navbar')?.offsetHeight || 0;
-    const y = titleEl.getBoundingClientRect().top + window.pageYOffset - navbarHeight - 6;
+function scrollSectionHeaderIntoView(sectionEl) {
+    const headerEl = getHeaderEl(sectionEl);
+    if (!headerEl) return;
 
-    window.scrollTo({ top: y, behavior: 'smooth' });
+    const navbarHeight = document.querySelector(".navbar")?.offsetHeight || 0;
+    const y = headerEl.getBoundingClientRect().top + window.pageYOffset - navbarHeight - 6;
+
+    window.scrollTo({ top: y, behavior: "smooth" });
+}
+
+function setExpanded(sectionEl, expanded) {
+    const headerEl = getHeaderEl(sectionEl);
+    if (headerEl) headerEl.setAttribute("aria-expanded", String(expanded));
 }
 
 function openSection(sectionEl) {
     if (!sectionEl) return;
-    sectionEl.classList.add('is-open');
-    const btn = sectionEl.querySelector('.section-toggle');
-    if (btn) btn.setAttribute('aria-expanded', 'true');
-    scrollSectionTitleIntoView(sectionEl);
+    sectionEl.classList.add("is-open");
+    setExpanded(sectionEl, true);
 }
 
+function closeSection(sectionEl) {
+    if (!sectionEl) return;
+    sectionEl.classList.remove("is-open");
+    setExpanded(sectionEl, false);
+}
 
 function toggleSection(sectionEl) {
     if (!sectionEl) return;
-    const isOpen = sectionEl.classList.contains('is-open');
-
-    if (!isOpen) {
-        openSection(sectionEl);
-    } else {
-        sectionEl.classList.remove('is-open');
-        const btn = sectionEl.querySelector('.section-toggle');
-        if (btn) btn.setAttribute('aria-expanded', 'false');
-    }
+    const open = sectionEl.classList.contains("is-open");
+    if (open) closeSection(sectionEl);
+    else openSection(sectionEl);
 }
 
 function initAccordionState() {
-    const sections = document.querySelectorAll('.collapsible-section');
+    const sections = document.querySelectorAll(".collapsible-section");
 
-    sections.forEach(sec => {
-        sec.classList.remove('is-open');
-        const btn = sec.querySelector('.section-toggle');
-        if (btn) btn.setAttribute('aria-expanded', 'false');
-    });
-
-    // On desktop, keep everything open
+    // Desktop: open all
     if (!isMobile()) {
-        sections.forEach(sec => {
-            sec.classList.add('is-open');
-            const btn = sec.querySelector('.section-toggle');
-            if (btn) btn.setAttribute('aria-expanded', 'true');
-        });
+        sections.forEach(sec => openSection(sec));
+        return;
     }
+
+    // Mobile: start closed
+    sections.forEach(sec => closeSection(sec));
 }
 
-// iOS-safe toggle: ONLY toggle when the toggle button is tapped (not when scrolling on header)
-document.querySelectorAll('.collapsible-section .section-toggle').forEach(btn => {
-    let startX = 0;
-    let startY = 0;
-    let moved = false;
-    const THRESHOLD = 10;
+// -----------------------------
+// Main
+// -----------------------------
+document.addEventListener("DOMContentLoaded", () => {
+    // Hamburger
+    const hamburger = document.getElementById("hamburger");
+    const navLinks = document.getElementById("nav-links");
 
-    btn.addEventListener('touchstart', (e) => {
-        if (!isMobile()) return;
-        const t = e.touches[0];
-        startX = t.clientX;
-        startY = t.clientY;
-        moved = false;
-    }, { passive: true });
+    if (hamburger && navLinks) {
+        hamburger.addEventListener("click", () => {
+            navLinks.classList.toggle("show");
+        });
+    }
 
-    btn.addEventListener('touchmove', (e) => {
-        if (!isMobile()) return;
-        const t = e.touches[0];
-        const dx = Math.abs(t.clientX - startX);
-        const dy = Math.abs(t.clientY - startY);
-        if (dx > THRESHOLD || dy > THRESHOLD) moved = true;
-    }, { passive: true });
+    // -----------------------------
+    // iOS-safe accordion tap detection
+    // Entire header is clickable, BUT only toggles on a real tap (no scroll gesture)
+    // -----------------------------
+    const MOVE_THRESHOLD = 14;      // px
+    const SCROLL_THRESHOLD = 2;     // px
 
-    btn.addEventListener('touchend', (e) => {
-        if (!isMobile()) return;
-        if (moved) return;
+    // Prevent ghost click after touchend on iOS
+    let justHandledTouch = false;
 
-        e.preventDefault(); // prevent iOS ghost click
-        e.stopPropagation();
+    document.querySelectorAll(".collapsible-section .section-header").forEach((btn) => {
+        let startX = 0;
+        let startY = 0;
+        let startScrollY = 0;
+        let moved = false;
 
-        const section = btn.closest('.collapsible-section');
-        toggleSection(section);
-    }, { passive: false });
+        btn.addEventListener("touchstart", (e) => {
+            if (!isMobile()) return;
+            const t = e.touches[0];
+            startX = t.clientX;
+            startY = t.clientY;
+            startScrollY = window.scrollY;
+            moved = false;
+        }, { passive: true });
 
-    // Desktop / non-iOS fallback
-    btn.addEventListener('click', (e) => {
-        if (!isMobile()) return;
-        e.preventDefault();
-        e.stopPropagation();
-        toggleSection(btn.closest('.collapsible-section'));
+        btn.addEventListener("touchmove", (e) => {
+            if (!isMobile()) return;
+            const t = e.touches[0];
+            const dx = Math.abs(t.clientX - startX);
+            const dy = Math.abs(t.clientY - startY);
+            if (dx > MOVE_THRESHOLD || dy > MOVE_THRESHOLD) moved = true;
+        }, { passive: true });
+
+        btn.addEventListener("touchend", (e) => {
+            if (!isMobile()) return;
+
+            const scrolled = Math.abs(window.scrollY - startScrollY) > SCROLL_THRESHOLD;
+            if (moved || scrolled) return;
+
+            e.preventDefault(); // stops ghost click
+            justHandledTouch = true;
+            setTimeout(() => (justHandledTouch = false), 600);
+
+            const section = btn.closest(".collapsible-section");
+            toggleSection(section);
+        }, { passive: false });
+
+        // Desktop click toggling
+        btn.addEventListener("click", (e) => {
+            if (isMobile()) {
+                // On mobile/iOS we do NOT toggle on click due to ghost clicks
+                if (justHandledTouch) {
+                    e.preventDefault();
+                    return;
+                }
+                e.preventDefault();
+                return;
+            }
+
+            const section = btn.closest(".collapsible-section");
+            toggleSection(section);
+        });
     });
-});
 
-// Nav click: open the section (accordion) then scroll to title
-document.querySelectorAll('.navbar a[href^="#"]').forEach(link => {
-    link.addEventListener('click', function (e) {
-        e.preventDefault();
+    // -----------------------------
+    // Navbar links: open section + smooth scroll
+    // -----------------------------
+    document.querySelectorAll('.navbar a[href^="#"]').forEach((link) => {
+        link.addEventListener("click", function (e) {
+            e.preventDefault();
 
-        const target = document.querySelector(this.getAttribute('href'));
-        if (!target) return;
+            const target = document.querySelector(this.getAttribute("href"));
+            if (!target) return;
 
-        if (isMobile() && target.classList.contains('collapsible-section')) {
-            openSection(target);
-        } else {
-            scrollSectionTitleIntoView(target);
-        }
+            if (isMobile() && target.classList.contains("collapsible-section")) {
+                openSection(target);
+                scrollSectionHeaderIntoView(target);
+            } else {
+                scrollSectionHeaderIntoView(target);
+            }
 
-        document.getElementById('nav-links').classList.remove('show');
+            navLinks?.classList.remove("show");
+        });
     });
-});
 
-initAccordionState();
-window.addEventListener('resize', initAccordionState);
+    // Init / resize
+    initAccordionState();
+    window.addEventListener("resize", initAccordionState);
+});

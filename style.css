@@ -216,7 +216,7 @@ body {
     font-size: 2rem;
 }
 
-/* Card grid (Most popular, etc.) */
+/* Card grid */
 
 .menu-grid {
     display: grid;
@@ -356,12 +356,9 @@ body {
     margin: 16px auto;
 }
 
-.footer .footer-cta a {
-    color: var(--primary-gray);
-}
-
 .footer .footer-cta .order-btn {
     margin-top: 10px;
+    color: #fff;
 }
 
 /* Responsive tweaks */
@@ -404,7 +401,7 @@ body {
 
 @media (max-width: 700px) {
 
-    /* tighter sections + edge-to-edge */
+    /* Edge-to-edge + tight spacing */
     .menu-section {
         padding: 6px 0;
         text-align: left;
@@ -416,60 +413,44 @@ body {
         padding: 0;
     }
 
-    /* header row (NOT clickable) */
+    /* Make header button full width */
     .collapsible-section .section-title {
+        margin: 0;
+    }
+
+    .collapsible-section .section-header {
+        width: 100%;
         display: flex;
         align-items: center;
         justify-content: space-between;
 
         padding: 10px 16px;
-        margin: 0;
         background: rgba(0, 0, 0, 0.04);
+        border: none;
+        text-align: left;
 
-        user-select: none;
+        /* smaller label */
         font-size: 1.05rem;
         font-weight: 700;
+        color: var(--primary-red);
 
-        /* key iOS improvement: allow scroll gestures on header safely */
+        /* key: allow scroll gestures without weirdness */
         touch-action: pan-y;
-    }
-
-    .section-label {
-        display: block;
-    }
-
-    /* ONLY the button toggles */
-    .section-toggle {
-        width: 34px;
-        height: 34px;
-        border: none;
-        background: transparent;
-        cursor: pointer;
-        border-radius: 8px;
-
-        /* helps iOS treat this as a tap target */
-        touch-action: manipulation;
         -webkit-tap-highlight-color: transparent;
+        user-select: none;
+        cursor: pointer;
     }
 
-    .section-toggle::before {
-        content: "▾";
-        display: inline-block;
-        font-size: 0.95rem;
+    .section-chevron {
         color: var(--primary-blue);
         transition: transform 0.2s ease;
+        font-size: 0.95rem;
     }
 
-    .collapsible-section.is-open .section-toggle::before {
+    .collapsible-section.is-open .section-chevron {
         transform: rotate(180deg);
     }
 
-    .section-toggle:focus {
-        outline: none;
-        box-shadow: 0 0 0 3px rgba(230, 57, 70, 0.25);
-    }
-
-    /* collapse content by default */
     .collapsible-section .section-content {
         display: none;
         padding: 10px 16px 16px;
@@ -479,28 +460,33 @@ body {
         display: block;
     }
 
-    /* tighten headers inside content */
+    /* tighter internal spacing */
     .column-title {
         font-size: 1.2rem;
         margin-bottom: 10px;
         text-align: left;
-        padding: 0;
     }
 
-    /* slightly tighter list rows */
     .list-item {
         padding: 10px 0;
     }
 }
 
-/* On desktop: keep normal layout (everything open) */
+/* Desktop: keep sections open */
 @media (min-width: 701px) {
     .collapsible-section .section-content {
         display: block;
     }
 
-    /* hide toggle button on desktop (optional) */
-    .section-toggle {
+    .collapsible-section .section-header {
+        width: auto;
+        display: inline-flex;
+        gap: 12px;
+        background: transparent;
+        cursor: default;
+    }
+
+    .section-chevron {
         display: none;
     }
 }
