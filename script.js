@@ -18,26 +18,14 @@ function scrollSectionTitleIntoView(sectionEl) {
     window.scrollTo({ top: y, behavior: 'smooth' });
 }
 
-function closeAllSections(exceptSection = null) {
-    document.querySelectorAll('.collapsible-section').forEach(sec => {
-        if (exceptSection && sec === exceptSection) return;
-        sec.classList.remove('is-open');
-
-        const btn = sec.querySelector('.section-toggle');
-        if (btn) btn.setAttribute('aria-expanded', 'false');
-    });
-}
-
 function openSection(sectionEl) {
     if (!sectionEl) return;
-    closeAllSections(sectionEl);
     sectionEl.classList.add('is-open');
-
     const btn = sectionEl.querySelector('.section-toggle');
     if (btn) btn.setAttribute('aria-expanded', 'true');
-
     scrollSectionTitleIntoView(sectionEl);
 }
+
 
 function toggleSection(sectionEl) {
     if (!sectionEl) return;
