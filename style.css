@@ -216,7 +216,7 @@ body {
     font-size: 2rem;
 }
 
-/* Card grid */
+/* Card grid (Most popular, etc.) */
 
 .menu-grid {
     display: grid;
@@ -356,9 +356,12 @@ body {
     margin: 16px auto;
 }
 
+.footer .footer-cta a {
+    color: var(--primary-gray);
+}
+
 .footer .footer-cta .order-btn {
     margin-top: 10px;
-    color: #fff;
 }
 
 /* Responsive tweaks */
@@ -399,94 +402,94 @@ body {
    Mobile accordion sections
    --------------------------- */
 
+.section-title {
+    outline: none;
+}
+
 @media (max-width: 700px) {
 
-    /* Edge-to-edge + tight spacing */
+    /* tighter sections + edge-to-edge */
     .menu-section {
         padding: 6px 0;
+        /* MUCH closer together */
         text-align: left;
         scroll-margin-top: 120px;
+        /* sticky nav offset */
     }
 
     .menu-section .container {
         max-width: none;
         padding: 0;
+        /* make headers reach screen edge */
     }
 
-    /* Make header button full width */
+    /* accordion header styling */
     .collapsible-section .section-title {
-        margin: 0;
-    }
-
-    .collapsible-section .section-header {
-        width: 100%;
         display: flex;
         align-items: center;
         justify-content: space-between;
 
         padding: 10px 16px;
+        /* smaller, tighter */
+        margin: 0;
+        /* remove big h2 spacing */
+        border-radius: 0;
+        /* edge-to-edge slab */
         background: rgba(0, 0, 0, 0.04);
-        border: none;
-        text-align: left;
 
-        /* smaller label */
-        font-size: 1.05rem;
-        font-weight: 700;
-        color: var(--primary-red);
-
-        /* key: allow scroll gestures without weirdness */
-        touch-action: pan-y;
-        -webkit-tap-highlight-color: transparent;
-        user-select: none;
         cursor: pointer;
+        user-select: none;
+
+        font-size: 1.05rem;
+        /* smaller label */
+        font-weight: 700;
     }
 
-    .section-chevron {
-        color: var(--primary-blue);
-        transition: transform 0.2s ease;
+    .collapsible-section .section-title:focus {
+        box-shadow: 0 0 0 3px rgba(230, 57, 70, 0.25);
+    }
+
+    .collapsible-section .section-title::after {
+        content: "▾";
         font-size: 0.95rem;
+        /* smaller chevron */
+        color: var(--primary-blue);
+        margin-left: 12px;
+        transition: transform 0.2s ease;
     }
 
-    .collapsible-section.is-open .section-chevron {
+    .collapsible-section.is-open .section-title::after {
         transform: rotate(180deg);
     }
 
+    /* collapse content by default */
     .collapsible-section .section-content {
         display: none;
         padding: 10px 16px 16px;
+        /* content has breathing room */
     }
 
     .collapsible-section.is-open .section-content {
         display: block;
     }
 
-    /* tighter internal spacing */
+    /* tighten headers inside content */
     .column-title {
         font-size: 1.2rem;
         margin-bottom: 10px;
         text-align: left;
+        padding: 0 0;
     }
 
+    /* slightly tighter list rows */
     .list-item {
         padding: 10px 0;
     }
 }
 
-/* Desktop: keep sections open */
+/* On desktop: keep normal layout (everything open) */
 @media (min-width: 701px) {
     .collapsible-section .section-content {
         display: block;
-    }
-
-    .collapsible-section .section-header {
-        width: auto;
-        display: inline-flex;
-        gap: 12px;
-        background: transparent;
-        cursor: default;
-    }
-
-    .section-chevron {
-        display: none;
     }
 }
