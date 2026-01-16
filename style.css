@@ -402,71 +402,77 @@ body {
    Mobile accordion sections
    --------------------------- */
 
-.section-title {
-    outline: none;
-}
-
 @media (max-width: 700px) {
 
     /* tighter sections + edge-to-edge */
     .menu-section {
         padding: 6px 0;
-        /* MUCH closer together */
         text-align: left;
         scroll-margin-top: 120px;
-        /* sticky nav offset */
     }
 
     .menu-section .container {
         max-width: none;
         padding: 0;
-        /* make headers reach screen edge */
     }
 
-    /* accordion header styling */
+    /* header row (NOT clickable) */
     .collapsible-section .section-title {
         display: flex;
         align-items: center;
         justify-content: space-between;
 
         padding: 10px 16px;
-        /* smaller, tighter */
         margin: 0;
-        /* remove big h2 spacing */
-        border-radius: 0;
-        /* edge-to-edge slab */
         background: rgba(0, 0, 0, 0.04);
 
-        cursor: pointer;
         user-select: none;
-
         font-size: 1.05rem;
-        /* smaller label */
         font-weight: 700;
+
+        /* key iOS improvement: allow scroll gestures on header safely */
+        touch-action: pan-y;
     }
 
-    .collapsible-section .section-title:focus {
-        box-shadow: 0 0 0 3px rgba(230, 57, 70, 0.25);
+    .section-label {
+        display: block;
     }
 
-    .collapsible-section .section-title::after {
+    /* ONLY the button toggles */
+    .section-toggle {
+        width: 34px;
+        height: 34px;
+        border: none;
+        background: transparent;
+        cursor: pointer;
+        border-radius: 8px;
+
+        /* helps iOS treat this as a tap target */
+        touch-action: manipulation;
+        -webkit-tap-highlight-color: transparent;
+    }
+
+    .section-toggle::before {
         content: "▾";
+        display: inline-block;
         font-size: 0.95rem;
-        /* smaller chevron */
         color: var(--primary-blue);
-        margin-left: 12px;
         transition: transform 0.2s ease;
     }
 
-    .collapsible-section.is-open .section-title::after {
+    .collapsible-section.is-open .section-toggle::before {
         transform: rotate(180deg);
+    }
+
+    .section-toggle:focus {
+        outline: none;
+        box-shadow: 0 0 0 3px rgba(230, 57, 70, 0.25);
     }
 
     /* collapse content by default */
     .collapsible-section .section-content {
         display: none;
         padding: 10px 16px 16px;
-        /* content has breathing room */
     }
 
     .collapsible-section.is-open .section-content {
@@ -478,7 +484,7 @@ body {
         font-size: 1.2rem;
         margin-bottom: 10px;
         text-align: left;
-        padding: 0 0;
+        padding: 0;
     }
 
     /* slightly tighter list rows */
@@ -491,5 +497,10 @@ body {
 @media (min-width: 701px) {
     .collapsible-section .section-content {
         display: block;
+    }
+
+    /* hide toggle button on desktop (optional) */
+    .section-toggle {
+        display: none;
     }
 }

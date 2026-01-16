@@ -1,4 +1,3 @@
-
 // ---------- Mobile nav ----------
 document.getElementById('hamburger').addEventListener('click', function () {
     document.getElementById('nav-links').classList.toggle('show');
@@ -23,8 +22,9 @@ function closeAllSections(exceptSection = null) {
     document.querySelectorAll('.collapsible-section').forEach(sec => {
         if (exceptSection && sec === exceptSection) return;
         sec.classList.remove('is-open');
-        const title = sec.querySelector('.section-title');
-        if (title) title.setAttribute('aria-expanded', 'false');
+
+        const btn = sec.querySelector('.section-toggle');
+        if (btn) btn.setAttribute('aria-expanded', 'false');
     });
 }
 
@@ -32,8 +32,10 @@ function openSection(sectionEl) {
     if (!sectionEl) return;
     closeAllSections(sectionEl);
     sectionEl.classList.add('is-open');
-    const title = sectionEl.querySelector('.section-title');
-    if (title) title.setAttribute('aria-expanded', 'true');
+
+    const btn = sectionEl.querySelector('.section-toggle');
+    if (btn) btn.setAttribute('aria-expanded', 'true');
+
     scrollSectionTitleIntoView(sectionEl);
 }
 
@@ -45,8 +47,8 @@ function toggleSection(sectionEl) {
         openSection(sectionEl);
     } else {
         sectionEl.classList.remove('is-open');
-        const title = sectionEl.querySelector('.section-title');
-        if (title) title.setAttribute('aria-expanded', 'false');
+        const btn = sectionEl.querySelector('.section-toggle');
+        if (btn) btn.setAttribute('aria-expanded', 'false');
     }
 }
 
@@ -55,33 +57,60 @@ function initAccordionState() {
 
     sections.forEach(sec => {
         sec.classList.remove('is-open');
-        const title = sec.querySelector('.section-title');
-        if (title) title.setAttribute('aria-expanded', 'false');
+        const btn = sec.querySelector('.section-toggle');
+        if (btn) btn.setAttribute('aria-expanded', 'false');
     });
 
     // On desktop, keep everything open
     if (!isMobile()) {
         sections.forEach(sec => {
             sec.classList.add('is-open');
-            const title = sec.querySelector('.section-title');
-            if (title) title.setAttribute('aria-expanded', 'true');
+            const btn = sec.querySelector('.section-toggle');
+            if (btn) btn.setAttribute('aria-expanded', 'true');
         });
     }
 }
 
-// Click/keyboard on section titles
-document.querySelectorAll('.collapsible-section .section-title').forEach(titleEl => {
-    titleEl.addEventListener('click', () => {
-        if (!isMobile()) return;
-        toggleSection(titleEl.closest('.collapsible-section'));
-    });
+// iOS-safe toggle: ONLY toggle when the toggle button is tapped (not when scrolling on header)
+document.querySelectorAll('.collapsible-section .section-toggle').forEach(btn => {
+    let startX = 0;
+    let startY = 0;
+    let moved = false;
+    const THRESHOLD = 10;
 
-    titleEl.addEventListener('keydown', (e) => {
+    btn.addEventListener('touchstart', (e) => {
         if (!isMobile()) return;
-        if (e.key === 'Enter' || e.key === ' ') {
-            e.preventDefault();
-            toggleSection(titleEl.closest('.collapsible-section'));
-        }
+        const t = e.touches[0];
+        startX = t.clientX;
+        startY = t.clientY;
+        moved = false;
+    }, { passive: true });
+
+    btn.addEventListener('touchmove', (e) => {
+        if (!isMobile()) return;
+        const t = e.touches[0];
+        const dx = Math.abs(t.clientX - startX);
+        const dy = Math.abs(t.clientY - startY);
+        if (dx > THRESHOLD || dy > THRESHOLD) moved = true;
+    }, { passive: true });
+
+    btn.addEventListener('touchend', (e) => {
+        if (!isMobile()) return;
+        if (moved) return;
+
+        e.preventDefault(); // prevent iOS ghost click
+        e.stopPropagation();
+
+        const section = btn.closest('.collapsible-section');
+        toggleSection(section);
+    }, { passive: false });
+
+    // Desktop / non-iOS fallback
+    btn.addEventListener('click', (e) => {
+        if (!isMobile()) return;
+        e.preventDefault();
+        e.stopPropagation();
+        toggleSection(btn.closest('.collapsible-section'));
     });
 });
 
