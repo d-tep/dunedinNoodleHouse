@@ -1197,13 +1197,36 @@
             }
         }
 
-        // Click/keyboard on section titles
+        // Click/keyboard on section titles (tap-only on mobile; ignore scroll swipes)
         document.querySelectorAll('.collapsible-section .section-title').forEach(titleEl => {
-            titleEl.addEventListener('click', () => {
+            let startX = 0;
+            let startY = 0;
+            let moved = false;
+
+            const MOVE_THRESHOLD = 10; // px
+
+            // Track touch/pointer movement
+            titleEl.addEventListener('pointerdown', (e) => {
                 if (!isMobile()) return;
-                toggleSection(titleEl.closest('.collapsible-section'));
+                startX = e.clientX;
+                startY = e.clientY;
+                moved = false;
+            }, { passive: true });
+
+            titleEl.addEventListener('pointermove', (e) => {
+                if (!isMobile()) return;
+                const dx = Math.abs(e.clientX - startX);
+                const dy = Math.abs(e.clientY - startY);
+                if (dx > MOVE_THRESHOLD || dy > MOVE_THRESHOLD) moved = true;
+            }, { passive: true });
+
+            titleEl.addEventListener('pointerup', () => {
+                if (!isMobile()) return;
+                // Only toggle if it was a tap (not a scroll/swipe)
+                if (!moved) toggleSection(titleEl.closest('.collapsible-section'));
             });
 
+            // Keyboard accessibility
             titleEl.addEventListener('keydown', (e) => {
                 if (!isMobile()) return;
                 if (e.key === 'Enter' || e.key === ' ') {
@@ -1212,6 +1235,7 @@
                 }
             });
         });
+
 
         // Nav click: open the section (accordion) then scroll to title
         document.querySelectorAll('.navbar a[href^="#"]').forEach(link => {
