@@ -1,147 +1,186 @@
-// ---------- Mobile nav ----------
+// ---------- Mobile hamburger ----------
 document.getElementById('hamburger')?.addEventListener('click', function () {
     document.getElementById('nav-links')?.classList.toggle('show');
 });
 
-// ---------- Accordion + scroll helpers ----------
+// ---------- Helpers ----------
 function isMobile() {
     return window.matchMedia('(max-width: 700px)').matches;
 }
 
-function scrollSectionTitleIntoView(sectionEl) {
-    const titleEl = sectionEl?.querySelector('.section-title');
-    if (!titleEl) return;
-
+function getNavbarOffset() {
     const navbarHeight = document.querySelector('.navbar')?.offsetHeight || 0;
-    const y = titleEl.getBoundingClientRect().top + window.pageYOffset - navbarHeight - 6;
+    return navbarHeight + 6;
+}
+
+function scrollSectionIntoView(sectionEl) {
+    if (!sectionEl) return;
+
+    const y =
+        sectionEl.getBoundingClientRect().top +
+        window.pageYOffset -
+        getNavbarOffset();
 
     window.scrollTo({ top: y, behavior: 'smooth' });
 }
 
-function closeAllSections(exceptSection = null) {
-    document.querySelectorAll('.collapsible-section').forEach(sec => {
-        if (exceptSection && sec === exceptSection) return;
-        sec.classList.remove('is-open');
-        const title = sec.querySelector('.section-title');
-        if (title) title.setAttribute('aria-expanded', 'false');
-    });
-}
-
-function openSection(sectionEl) {
-    if (!sectionEl) return;
-
-    // Auto-collapse others (remove this line if you want multiple open)
-    closeAllSections(sectionEl);
-
-    sectionEl.classList.add('is-open');
-    const title = sectionEl.querySelector('.section-title');
-    if (title) title.setAttribute('aria-expanded', 'true');
-
-    scrollSectionTitleIntoView(sectionEl);
-}
-
-function closeSection(sectionEl) {
-    if (!sectionEl) return;
-    sectionEl.classList.remove('is-open');
-    const title = sectionEl.querySelector('.section-title');
-    if (title) title.setAttribute('aria-expanded', 'false');
-}
-
-function toggleSection(sectionEl) {
-    if (!sectionEl) return;
-    const open = sectionEl.classList.contains('is-open');
-    if (open) closeSection(sectionEl);
-    else openSection(sectionEl);
-}
-
-function initAccordionState() {
-    const sections = document.querySelectorAll('.collapsible-section');
-
-    // Reset
-    sections.forEach(sec => {
-        sec.classList.remove('is-open');
-        const title = sec.querySelector('.section-title');
-        if (title) title.setAttribute('aria-expanded', 'false');
-    });
-
-    // Desktop: keep everything open
-    if (!isMobile()) {
-        sections.forEach(sec => {
-            sec.classList.add('is-open');
-            const title = sec.querySelector('.section-title');
-            if (title) title.setAttribute('aria-expanded', 'true');
-        });
-    }
-}
-
-// ---------- iOS FIX: prevent flick-scroll from toggling accordion ----------
-let touchIsScrolling = false;
-
-// Start of any touch gesture -> assume not scrolling yet
-window.addEventListener('touchstart', () => {
-    touchIsScrolling = false;
-}, { passive: true });
-
-// If any touchmove happens anywhere, user is scrolling (works for fast flicks)
-window.addEventListener('touchmove', () => {
-    touchIsScrolling = true;
-}, { passive: true });
-
-// Small cooldown after touch ends
-window.addEventListener('touchend', () => {
-    setTimeout(() => {
-        touchIsScrolling = false;
-    }, 180);
-}, { passive: true });
-
-// Accordion title handlers (entire header is clickable)
-document.querySelectorAll('.collapsible-section .section-title').forEach(titleEl => {
-    // Block iOS ghost clicks on mobile
-    titleEl.addEventListener('click', (e) => {
-        if (!isMobile()) return; // desktop ignores click anyway
-        e.preventDefault();
-        e.stopPropagation();
-    }, true);
-
-    // Use touchend for real taps only (no scrolling)
-    titleEl.addEventListener('touchend', (e) => {
-        if (!isMobile()) return;
-
-        // If any scrolling happened during this touch gesture, do NOT toggle
-        if (touchIsScrolling) return;
-
-        e.preventDefault();
-        toggleSection(titleEl.closest('.collapsible-section'));
-    }, { passive: false });
-
-    // Keyboard accessibility (mobile focus + Enter/Space)
-    titleEl.addEventListener('keydown', (e) => {
-        if (!isMobile()) return;
-        if (e.key === 'Enter' || e.key === ' ') {
-            e.preventDefault();
-            toggleSection(titleEl.closest('.collapsible-section'));
-        }
-    });
-});
-
-// ---------- Navbar links: open + scroll ----------
+// ---------- Smooth scroll for ALL navbar links (hamburger menu + desktop) ----------
 document.querySelectorAll('.navbar a[href^="#"]').forEach(link => {
+    // NOTE: we'll still let nav-strip manage its own click (below)
+    // This handler is okay because nav-strip also prevents default.
     link.addEventListener('click', function (e) {
-        e.preventDefault();
-
-        const target = document.querySelector(this.getAttribute('href'));
+        const href = this.getAttribute('href');
+        const target = href ? document.querySelector(href) : null;
         if (!target) return;
 
-        if (isMobile() && target.classList.contains('collapsible-section')) {
-            openSection(target);
-        } else {
-            scrollSectionTitleIntoView(target);
-        }
+        e.preventDefault();
+        scrollSectionIntoView(target);
 
+        // close hamburger after click
         document.getElementById('nav-links')?.classList.remove('show');
     });
 });
 
-// Init
-initAccordionState();
-window.addEventListener('resize', initAccordionState);
+// ---------- Horizontal mobile nav strip: active tracking + NO jumping underline ----------
+(function initActiveChipTracking() {
+    const strip = document.querySelector('.nav-strip');
+    if (!strip) return;
+
+    const chipLinks = Array.from(strip.querySelectorAll('a[href^="#"]'));
+    if (!chipLinks.length) return;
+
+    // Map section id -> chip link
+    const chipById = new Map();
+    chipLinks.forEach(a => {
+        const id = (a.getAttribute('href') || '').slice(1);
+        if (id) chipById.set(id, a);
+    });
+
+    const sections = Array.from(chipById.keys())
+        .map(id => document.getElementById(id))
+        .filter(Boolean);
+
+    if (!sections.length) return;
+
+    let lastActiveId = null;
+
+    // ✅ NEW: lock active chip during programmatic scroll
+    let lockActive = false;
+    let lockTimer = null;
+    let scrollEndTimer = null;
+
+    function setLockActive(on) {
+        lockActive = on;
+        if (lockTimer) clearTimeout(lockTimer);
+        if (!on) return;
+
+        // hard timeout fallback (in case scrollend detection fails)
+        lockTimer = setTimeout(() => {
+            lockActive = false;
+        }, 1200);
+    }
+
+    // Detect when scrolling settles (debounced)
+    function armScrollEndUnlock() {
+        if (scrollEndTimer) clearTimeout(scrollEndTimer);
+        scrollEndTimer = setTimeout(() => {
+            lockActive = false;
+        }, 140);
+    }
+
+    window.addEventListener(
+        'scroll',
+        () => {
+            if (!lockActive) return;
+            armScrollEndUnlock();
+        },
+        { passive: true }
+    );
+
+    function setActiveChip(id, { align = true, force = false } = {}) {
+        if (!id) return;
+        if (!force && id === lastActiveId) return;
+
+        lastActiveId = id;
+
+        chipLinks.forEach(a => a.classList.remove('active'));
+        const active = chipById.get(id);
+        if (!active) return;
+
+        active.classList.add('active');
+
+        if (align && isMobile()) {
+            active.scrollIntoView({
+                behavior: 'smooth',
+                inline: 'start',
+                block: 'nearest'
+            });
+        }
+    }
+
+    // ✅ When you tap a chip:
+    // - lock active so underline doesn't jump
+    // - set active immediately
+    // - smooth scroll to section
+    chipLinks.forEach(a => {
+        a.addEventListener('click', (e) => {
+            const href = a.getAttribute('href') || '';
+            if (!href.startsWith('#')) return;
+
+            const id = href.slice(1);
+            const target = document.getElementById(id);
+            if (!target) return;
+
+            e.preventDefault();
+
+            setLockActive(true);
+            setActiveChip(id, { align: true, force: true });
+            scrollSectionIntoView(target);
+
+            // close hamburger if open
+            document.getElementById('nav-links')?.classList.remove('show');
+        });
+    });
+
+    // Observer: keep active chip in sync while user scrolls
+    const observer = new IntersectionObserver(
+        (entries) => {
+            if (!isMobile()) return;
+            if (lockActive) return; // ✅ key line: ignore observer updates while locked
+
+            const visible = entries
+                .filter(e => e.isIntersecting)
+                .sort((a, b) => b.intersectionRatio - a.intersectionRatio);
+
+            if (visible.length) {
+                setActiveChip(visible[0].target.id, { align: true });
+            }
+        },
+        {
+            rootMargin: `-${getNavbarOffset()}px 0px -45% 0px`,
+            threshold: [0.08, 0.15, 0.25, 0.4, 0.6]
+        }
+    );
+
+    sections.forEach(sec => observer.observe(sec));
+
+    // Set initial active chip on load
+    window.addEventListener('load', () => {
+        if (!isMobile()) return;
+
+        const y = window.scrollY + getNavbarOffset();
+        let best = null;
+        let bestDist = Infinity;
+
+        sections.forEach(sec => {
+            const top = sec.getBoundingClientRect().top + window.scrollY;
+            const d = Math.abs(top - y);
+            if (d < bestDist) {
+                bestDist = d;
+                best = sec;
+            }
+        });
+
+        if (best) setActiveChip(best.id, { align: false, force: true });
+    });
+})();

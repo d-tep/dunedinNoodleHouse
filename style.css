@@ -133,6 +133,17 @@ body {
     background: #c92c37;
 }
 
+/* HARD reset nav-strip link states (Safari fix) */
+.nav-strip a,
+.nav-strip a:visited,
+.nav-strip a:focus,
+.nav-strip a:active {
+    color: #fff !important;
+    background: none !important;
+    text-decoration: none !important;
+    outline: none;
+}
+
 /* Navbar */
 
 .navbar {
@@ -179,6 +190,133 @@ body {
     border: none;
     color: white;
     cursor: pointer;
+}
+
+/* Mobile top bar: hamburger + horizontal scroll strip */
+.nav-mobile {
+    display: none;
+    background: var(--primary-blue);
+    padding: 10px 12px;
+    gap: 10px;
+    align-items: center;
+}
+
+.hamburger {
+    font-size: 28px;
+    background: none;
+    border: none;
+    color: #fff;
+    cursor: pointer;
+    padding: 6px 10px;
+    border-radius: 8px;
+    flex: 0 0 auto;
+}
+
+/* Uber-style horizontal scroll nav */
+.nav-strip {
+    flex: 1 1 auto;
+    display: flex;
+    gap: 10px;
+    overflow-x: auto;
+    white-space: nowrap;
+    -webkit-overflow-scrolling: touch;
+    padding: 2px 2px;
+    scroll-snap-type: x proximity;
+}
+
+/* Hide scrollbar (optional but nice) */
+.nav-strip::-webkit-scrollbar {
+    height: 0;
+}
+
+.nav-strip a {
+    scroll-snap-align: start;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+
+    padding: 8px 12px;
+    /* border-radius: 999px;
+
+    background: rgba(255, 255, 255, 0.12); */
+    color: #fff;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 0.95rem;
+
+    /* border: 1px solid rgba(255, 255, 255, 0.16); */
+}
+
+.nav-strip a:hover {
+    color: #fff;
+    background: rgba(255, 255, 255, 0.18);
+}
+
+.nav-strip .nav-strip-order {
+    background: rgba(230, 57, 70, 0.95) !important;
+    border-color: rgba(230, 57, 70, 0.95) !important;
+    border-radius: 5px !important;
+}
+
+/* Active chip underline ONLY */
+.nav-strip a.active {
+    border-bottom: 4px solid #e63946 !important;
+}
+
+/* Active chip (current section) */
+.nav-strip a.active {
+    background: rgba(255, 255, 255, 0.28);
+    border-color: rgba(255, 255, 255, 0.35);
+}
+
+.nav-strip {
+    min-width: 0;
+    /* critical in a flex row */
+    padding-left: 6px;
+    /* little breathing room */
+    scroll-padding-left: 6px;
+    /* makes scrollIntoView align nicely */
+}
+
+.nav-strip a {
+    flex: 0 0 auto;
+    /* DO NOT shrink */
+    white-space: nowrap;
+    /* keep words on one line */
+}
+
+/* Optional: stop iOS adding weird tap highlighting */
+.nav-strip a {
+    -webkit-tap-highlight-color: transparent;
+}
+
+/* Desktop navbar layout stays as-is */
+.navbar .container {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    padding: 10px 12px;
+    gap: 16px;
+}
+
+/* Mobile behavior */
+@media (max-width: 700px) {
+    .nav-mobile {
+        display: flex;
+    }
+
+    /* Hide the full menu until hamburger opens it */
+    .navbar .container {
+        display: none;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 12px;
+        padding: 12px 16px;
+    }
+
+    .navbar .container.show {
+        display: flex;
+    }
 }
 
 /* Hide links on mobile */
@@ -376,11 +514,27 @@ body {
     }
 }
 
+/* ✅ HERO FIX (this is what makes it match your 2nd screenshot) */
 @media (max-width: 700px) {
     .hero-bar {
         flex-direction: column;
+        align-items: center;
         text-align: center;
-        gap: 10px;
+        gap: 14px;
+        flex-wrap: nowrap;
+        /* prevents odd 2-column wraps */
+    }
+
+    .hero-center {
+        flex: none;
+        width: 100%;
+        text-align: center;
+    }
+
+    .hero-center .logo {
+        max-width: 110px;
+        margin: 0 auto;
+        display: block;
     }
 
     .hero-center h1 {
@@ -399,105 +553,5 @@ body {
 
     .menu-item img {
         height: 150px;
-    }
-}
-
-/* ---------------------------
-   Mobile accordion sections
-   --------------------------- */
-
-.section-title {
-    outline: none;
-}
-
-@media (max-width: 700px) {
-
-    /* tighter sections + edge-to-edge */
-    .menu-section {
-        padding: 6px 0;
-        /* MUCH closer together */
-        text-align: left;
-        scroll-margin-top: 120px;
-        /* sticky nav offset */
-    }
-
-    .menu-section .container {
-        max-width: none;
-        padding: 0;
-        /* make headers reach screen edge */
-    }
-
-    /* accordion header styling */
-    .collapsible-section .section-title {
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-
-        padding: 10px 16px;
-        /* smaller, tighter */
-        margin: 0;
-        /* remove big h2 spacing */
-        border-radius: 0;
-        /* edge-to-edge slab */
-        background: rgba(0, 0, 0, 0.04);
-
-        cursor: pointer;
-        user-select: none;
-
-        font-size: 1.05rem;
-        /* smaller label */
-        font-weight: 700;
-
-        /* iOS: allow scroll gestures to start here */
-        touch-action: pan-y;
-        -webkit-tap-highlight-color: transparent;
-    }
-
-    .collapsible-section .section-title:focus {
-        box-shadow: 0 0 0 3px rgba(230, 57, 70, 0.25);
-    }
-
-    .collapsible-section .section-title::after {
-        content: "▾";
-        font-size: 0.95rem;
-        /* smaller chevron */
-        color: var(--primary-blue);
-        margin-left: 12px;
-        transition: transform 0.2s ease;
-    }
-
-    .collapsible-section.is-open .section-title::after {
-        transform: rotate(180deg);
-    }
-
-    /* collapse content by default */
-    .collapsible-section .section-content {
-        display: none;
-        padding: 10px 16px 16px;
-        /* content has breathing room */
-    }
-
-    .collapsible-section.is-open .section-content {
-        display: block;
-    }
-
-    /* tighten headers inside content */
-    .column-title {
-        font-size: 1.2rem;
-        margin-bottom: 10px;
-        text-align: left;
-        padding: 0 0;
-    }
-
-    /* slightly tighter list rows */
-    .list-item {
-        padding: 10px 0;
-    }
-}
-
-/* On desktop: keep normal layout (everything open) */
-@media (min-width: 701px) {
-    .collapsible-section .section-content {
-        display: block;
     }
 }

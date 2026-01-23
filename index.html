@@ -84,12 +84,25 @@
     </header>
 
     <nav class="navbar">
+        <!-- MOBILE TOP BAR: hamburger + horizontal scroll nav -->
         <div class="nav-mobile">
-            <button class="hamburger" id="hamburger" aria-label="Open menu">
-                &#9776;
-            </button>
+            <button class="hamburger" id="hamburger" aria-label="Open menu">&#9776;</button>
+
+            <div class="nav-strip" aria-label="Quick menu sections">
+                <a href="#popular">Popular</a>
+                <a href="#noodlesoup">Noodle Soup</a>
+                <a href="#satay">Satay</a>
+                <a href="#friednoodles">Fried Noodles</a>
+                <a href="#rice">Rice</a>
+                <a href="#sides">Sides</a>
+                <a href="#contact">Contact</a>
+                <a class="nav-strip-order"
+                    href="https://www.ubereats.com/nz/store/dunedin-noodle-house/Esfn-eB0Wha3BwtgkDS6VQ?surfaceName="
+                    target="_blank" rel="noopener">Order</a>
+            </div>
         </div>
 
+        <!-- DESKTOP / EXPANDED MENU (hamburger toggles this on mobile) -->
         <div class="container" id="nav-links">
             <a href="#popular">Most Popular</a>
             <a href="#noodlesoup">Noodle Soup</a>
@@ -98,9 +111,10 @@
             <a href="#rice">Rice Dishes</a>
             <a href="#sides">Sides</a>
             <a href="#contact">Contact</a>
+
             <a id="navorderbutton"
                 href="https://www.ubereats.com/nz/store/dunedin-noodle-house/Esfn-eB0Wha3BwtgkDS6VQ?surfaceName="
-                target="_blank" class="nav-order-btn" rel="noopener">Order Online</a>
+                target="_blank" rel="noopener" class="nav-order-btn">Order Online</a>
         </div>
     </nav>
 
@@ -119,46 +133,204 @@
     </section>
 
     <!-- Most Popular -->
-    <section id="popular" class="menu-section collapsible-section">
+    <section id="popular" class="menu-section">
         <div class="container">
-            <h2 class="section-title" tabindex="0" role="button" aria-expanded="false">Most Popular</h2>
-            <div class="section-content">
-                <p style="margin: 0 0 14px; color:#666;">All meals are served large.</p>
+            <h2 class="section-title">Most Popular</h2>
 
-                <div class="menu-grid">
-                    <div class="menu-item" id="item-kua-teaw-popular">
-                        <img src="images/noodleSoup.png"
-                            alt="Cambodian noodle soup Kua Teaw with rice noodles and crispy garlic in Dunedin">
-                        <h3>Noodle Soup (Kua Teaw)</h3>
-                        <p>Traditional Cambodian rice noodle soup in a rich, savoury broth with bean sprouts, crispy
-                            garlic and spring onions.</p>
-                        <span>NZ$17.60 • 98% (84)</span>
+            <p style="margin: 0 0 14px; color:#666;">All meals are served large.</p>
+
+            <div class="menu-grid">
+                <div class="menu-item" id="item-kua-teaw-popular">
+                    <img src="images/noodleSoup.png"
+                        alt="Cambodian noodle soup Kua Teaw with rice noodles and crispy garlic in Dunedin">
+                    <h3>Noodle Soup (Kua Teaw)</h3>
+                    <p>Traditional Cambodian rice noodle soup in a rich, savoury broth with bean sprouts, crispy
+                        garlic and spring onions.</p>
+                    <span>NZ$17.60 • 98% (84)</span>
+                </div>
+
+                <div class="menu-item" id="item-chicken-satay-popular">
+                    <img src="images/chickenSatay.png"
+                        alt="Chicken satay with peanut sauce served with rice or noodles in Dunedin">
+                    <h3>Chicken Satay</h3>
+                    <p>Tender chicken cooked in a Cambodian spices topped with peanut satay sauce, served on
+                        rice.</p>
+                    <span>NZ$12.00 • 97% (212)</span>
+                </div>
+
+                <div class="menu-item" id="item-meurs-satay-burger-popular">
+                    <img src="images/satayBurger.png"
+                        alt="Meurs satay burger with peanut satay sauce on a sesame bun in Dunedin">
+                    <h3>Meurs Satay Burger</h3>
+                    <p>A local favourite — satay flavour with rich peanut sauce on a toasted sesame seed bun.</p>
+                    <span>NZ$8.50 • 96% (76)</span>
+                </div>
+
+                <div class="menu-item" id="item-laksa-popular">
+                    <img src="images/laksaCurry.png"
+                        alt="Laksa curry with rice noodles and coconut broth at Dunedin Noodle House">
+                    <h3>Laksa</h3>
+                    <p>Fragrant curry laksa served with rice noodles — warming, rich and full of flavour.
+                    </p>
+                    <span>NZ$18.90 • 98% (60)</span>
+                </div>
+
+            </div>
+    </section>
+
+    <section id="noodlesoup" class="menu-section alt">
+        <div class="container">
+            <h2 class="section-title">Noodle Soup</h2>
+            <p style="margin: 0 0 14px; color:#666;">Traditional Cambodian rice noodle soup in a rich, savoury broth
+                with bean sprouts, crispy garlic and spring onions.</p>
+            <div class="two-column-menu">
+                <!-- LEFT COLUMN -->
+                <div class="menu-column">
+
+                    <div class="list-item">
+                        <div class="item-info">
+                            <p class="item-name">Chicken or Beef Noodle Soup</p>
+                            <p class="item-desc">Rice noodles in our special Cambodian broth with bean sprouts, and
+                                crispy garlic flakes.</p>
+                        </div>
+                        <div class="item-meta">
+                            <p class="item-price">NZ$17.60</p>
+                            <p class="item-rating">98% (84)</p>
+                        </div>
                     </div>
 
-                    <div class="menu-item" id="item-chicken-satay-popular">
-                        <img src="images/chickenSatay.png"
-                            alt="Chicken satay coconut curry with peanut sauce served with rice or noodles in Dunedin">
-                        <h3>Chicken Satay</h3>
-                        <p>Tender chicken cooked in a Cambodian spices topped with peanut satay sauce, served on
-                            rice.</p>
-                        <span>NZ$12.00 • 97% (212)</span>
+                    <div class="list-item">
+                        <div class="item-info">
+                            <p class="item-name">Beef Ball Noodle Soup</p>
+                            <p class="item-desc">Rice noodles in our special broth with beef balls, bean sprouts,
+                                and garlic flakes.</p>
+                        </div>
+                        <div class="item-meta">
+                            <p class="item-price">NZ$20.50</p>
+                            <p class="item-rating">85% (27)</p>
+                        </div>
                     </div>
 
-                    <div class="menu-item" id="item-meurs-satay-burger-popular">
-                        <img src="images/satayBurger.png"
-                            alt="Meurs satay burger with peanut satay sauce on a sesame bun in Dunedin">
-                        <h3>Meurs Satay Burger</h3>
-                        <p>A local favourite — satay flavour with rich peanut sauce on a toasted sesame seed bun.</p>
-                        <span>NZ$8.50 • 96% (76)</span>
+                    <div class="list-item">
+                        <div class="item-info">
+                            <p class="item-name">Seafood Noodle Soup</p>
+                            <p class="item-desc">Rice noodles with mixed seafood in our signature broth, topped with
+                                bean sprouts and crispy garlic.</p>
+                        </div>
+                        <div class="item-meta">
+                            <p class="item-price">NZ$21.80</p>
+                            <p class="item-rating">100% (12)</p>
+                        </div>
                     </div>
 
-                    <div class="menu-item" id="item-laksa-popular">
-                        <img src="images/laksaCurry.png"
-                            alt="Laksa curry with rice noodles and coconut broth at Dunedin Noodle House">
-                        <h3>Laksa</h3>
-                        <p>Fragrant curry laksa served with rice noodles — warming, rich and full of flavour.
-                        </p>
-                        <span>NZ$18.90 • 98% (60)</span>
+                    <div class="list-item">
+                        <div class="item-info">
+                            <p class="item-name">Satay Noodle Soup</p>
+                            <p class="item-desc">Creamy Cambodian satay broth with rice noodles, bean sprouts, and
+                                garlic.</p>
+                        </div>
+                        <div class="item-meta">
+                            <p class="item-price">NZ$16.60</p>
+                            <p class="item-rating">84% (13)</p>
+                        </div>
+                    </div>
+
+                    <div class="list-item">
+                        <div class="item-info">
+                            <p class="item-name">Tom Yum Noodle Soup</p>
+                            <p class="item-desc">A fragrant, tangy Tom Yum-style soup with rice noodles, bean
+                                sprouts, and crispy garlic.</p>
+                        </div>
+                        <div class="item-meta">
+                            <p class="item-price">NZ$19.20</p>
+                            <p class="item-rating">88% (17)</p>
+                        </div>
+                    </div>
+
+                    <div class="list-item">
+                        <div class="item-info">
+                            <p class="item-name">Tofu Noodle Soup</p>
+                            <p class="item-desc">Comforting Cambodian noodle soup with tofu, rice noodles, bean
+                                sprouts, and garlic.</p>
+                        </div>
+                        <div class="item-meta">
+                            <p class="item-price">NZ$14.00</p>
+                        </div>
+                    </div>
+
+                </div>
+
+                <!-- RIGHT COLUMN -->
+                <div class="menu-column">
+
+                    <div class="list-item">
+                        <div class="item-info">
+                            <p class="item-name">Vegetable Noodle Soup</p>
+                            <p class="item-desc">Rice noodles with seasonal vegetables in our signature broth,
+                                topped with crispy garlic.</p>
+                        </div>
+                        <div class="item-meta">
+                            <p class="item-price">NZ$19.20</p>
+                            <p class="item-rating">100% (14)</p>
+                        </div>
+                    </div>
+
+                    <div class="list-item">
+                        <div class="item-info">
+                            <p class="item-name">Wonton Noodle Soup</p>
+                            <p class="item-desc">Rice noodles with wontons in our special broth, served with bean
+                                sprouts and garlic.</p>
+                        </div>
+                        <div class="item-meta">
+                            <p class="item-price">NZ$19.20</p>
+                            <p class="item-rating">100% (7)</p>
+                        </div>
+                    </div>
+
+                    <div class="list-item">
+                        <div class="item-info">
+                            <p class="item-name">Satay Wonton Noodle Soup</p>
+                            <p class="item-desc">Wontons and rice noodles in a creamy satay broth, finished with
+                                crispy garlic.</p>
+                        </div>
+                        <div class="item-meta">
+                            <p class="item-price">NZ$16.60</p>
+                        </div>
+                    </div>
+
+                    <div class="list-item">
+                        <div class="item-info">
+                            <p class="item-name">Combination Noodle Soup</p>
+                            <p class="item-desc">A hearty mix of meats with rice noodles in our signature Cambodian
+                                broth, topped with crispy garlic.</p>
+                        </div>
+                        <div class="item-meta">
+                            <p class="item-price">NZ$20.50</p>
+                            <p class="item-rating">85% (7)</p>
+                        </div>
+                    </div>
+
+                    <div class="list-item">
+                        <div class="item-info">
+                            <p class="item-name">Seafood Deluxe Noodle Soup</p>
+                            <p class="item-desc">Deluxe mixed seafood with rice noodles in our special broth,
+                                finished with bean sprouts and garlic.</p>
+                        </div>
+                        <div class="item-meta">
+                            <p class="item-price">NZ$17.90</p>
+                            <p class="item-rating">83% (6)</p>
+                        </div>
+                    </div>
+
+                    <div class="list-item">
+                        <div class="item-info">
+                            <p class="item-name">Seafood Wonton Noodle Soup</p>
+                            <p class="item-desc">Wontons and mixed seafood with rice noodles in our signature broth,
+                                topped with crispy garlic.</p>
+                        </div>
+                        <div class="item-meta">
+                            <p class="item-price">NZ$16.00</p>
+                        </div>
                     </div>
 
                 </div>
@@ -166,1079 +338,918 @@
         </div>
     </section>
 
-    <section id="noodlesoup" class="menu-section alt collapsible-section">
+
+    <section id="satay" class="menu-section">
         <div class="container">
-            <h2 class="section-title" tabindex="0" role="button" aria-expanded="false">Noodle Soup (Kuy Teaw)</h2>
-            <div class="section-content">
-                <div class="two-column-menu">
-                    <!-- LEFT COLUMN -->
-                    <div class="menu-column">
-
-                        <div class="list-item">
-                            <div class="item-info">
-                                <p class="item-name">Chicken or Beef Noodle Soup</p>
-                                <p class="item-desc">Rice noodles in our special Cambodian broth with bean sprouts, and
-                                    crispy garlic flakes.</p>
-                            </div>
-                            <div class="item-meta">
-                                <p class="item-price">NZ$17.60</p>
-                                <p class="item-rating">98% (84)</p>
-                            </div>
-                        </div>
-
-                        <div class="list-item">
-                            <div class="item-info">
-                                <p class="item-name">Beef Ball Noodle Soup</p>
-                                <p class="item-desc">Rice noodles in our special broth with beef balls, bean sprouts,
-                                    and garlic flakes.</p>
-                            </div>
-                            <div class="item-meta">
-                                <p class="item-price">NZ$20.50</p>
-                                <p class="item-rating">85% (27)</p>
-                            </div>
-                        </div>
-
-                        <div class="list-item">
-                            <div class="item-info">
-                                <p class="item-name">Seafood Noodle Soup</p>
-                                <p class="item-desc">Rice noodles with mixed seafood in our signature broth, topped with
-                                    bean sprouts and crispy garlic.</p>
-                            </div>
-                            <div class="item-meta">
-                                <p class="item-price">NZ$21.80</p>
-                                <p class="item-rating">100% (12)</p>
-                            </div>
-                        </div>
-
-                        <div class="list-item">
-                            <div class="item-info">
-                                <p class="item-name">Satay Noodle Soup</p>
-                                <p class="item-desc">Creamy Cambodian satay broth with rice noodles, bean sprouts, and
-                                    garlic.</p>
-                            </div>
-                            <div class="item-meta">
-                                <p class="item-price">NZ$16.60</p>
-                                <p class="item-rating">84% (13)</p>
-                            </div>
-                        </div>
-
-                        <div class="list-item">
-                            <div class="item-info">
-                                <p class="item-name">Tom Yum Noodle Soup</p>
-                                <p class="item-desc">A fragrant, tangy Tom Yum-style soup with rice noodles, bean
-                                    sprouts, and crispy garlic.</p>
-                            </div>
-                            <div class="item-meta">
-                                <p class="item-price">NZ$19.20</p>
-                                <p class="item-rating">88% (17)</p>
-                            </div>
-                        </div>
-
-                        <div class="list-item">
-                            <div class="item-info">
-                                <p class="item-name">Tofu Noodle Soup</p>
-                                <p class="item-desc">Comforting Cambodian noodle soup with tofu, rice noodles, bean
-                                    sprouts, and garlic.</p>
-                            </div>
-                            <div class="item-meta">
-                                <p class="item-price">NZ$14.00</p>
-                            </div>
-                        </div>
-
-                    </div>
-
-                    <!-- RIGHT COLUMN -->
-                    <div class="menu-column">
-
-                        <div class="list-item">
-                            <div class="item-info">
-                                <p class="item-name">Vegetable Noodle Soup</p>
-                                <p class="item-desc">Rice noodles with seasonal vegetables in our signature broth,
-                                    topped with crispy garlic.</p>
-                            </div>
-                            <div class="item-meta">
-                                <p class="item-price">NZ$19.20</p>
-                                <p class="item-rating">100% (14)</p>
-                            </div>
-                        </div>
-
-                        <div class="list-item">
-                            <div class="item-info">
-                                <p class="item-name">Wonton Noodle Soup</p>
-                                <p class="item-desc">Rice noodles with wontons in our special broth, served with bean
-                                    sprouts and garlic.</p>
-                            </div>
-                            <div class="item-meta">
-                                <p class="item-price">NZ$19.20</p>
-                                <p class="item-rating">100% (7)</p>
-                            </div>
-                        </div>
-
-                        <div class="list-item">
-                            <div class="item-info">
-                                <p class="item-name">Satay Wonton Noodle Soup</p>
-                                <p class="item-desc">Wontons and rice noodles in a creamy satay broth, finished with
-                                    crispy garlic.</p>
-                            </div>
-                            <div class="item-meta">
-                                <p class="item-price">NZ$16.60</p>
-                            </div>
-                        </div>
-
-                        <div class="list-item">
-                            <div class="item-info">
-                                <p class="item-name">Combination Noodle Soup</p>
-                                <p class="item-desc">A hearty mix of meats with rice noodles in our signature Cambodian
-                                    broth, topped with crispy garlic.</p>
-                            </div>
-                            <div class="item-meta">
-                                <p class="item-price">NZ$20.50</p>
-                                <p class="item-rating">85% (7)</p>
-                            </div>
-                        </div>
-
-                        <div class="list-item">
-                            <div class="item-info">
-                                <p class="item-name">Seafood Deluxe Noodle Soup</p>
-                                <p class="item-desc">Deluxe mixed seafood with rice noodles in our special broth,
-                                    finished with bean sprouts and garlic.</p>
-                            </div>
-                            <div class="item-meta">
-                                <p class="item-price">NZ$17.90</p>
-                                <p class="item-rating">83% (6)</p>
-                            </div>
-                        </div>
-
-                        <div class="list-item">
-                            <div class="item-info">
-                                <p class="item-name">Seafood Wonton Noodle Soup</p>
-                                <p class="item-desc">Wontons and mixed seafood with rice noodles in our signature broth,
-                                    topped with crispy garlic.</p>
-                            </div>
-                            <div class="item-meta">
-                                <p class="item-price">NZ$16.00</p>
-                            </div>
-                        </div>
-
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-
-    <section id="satay" class="menu-section collapsible-section">
-        <div class="container">
-            <h2 class="section-title" tabindex="0" role="button" aria-expanded="false">
-                Satay Dishes • Cambodian Spices & Peanut Sauce
+            <h2 class="section-title">
+                Khmer Satay Dishes
             </h2>
-            <div class="section-content">
-                <p style="margin: 0 0 14px; color:#666;">Marinated with mild Cambodian spices, nutty, and comforting —
-                    served with rice.</p>
 
-                <div class="two-column-menu">
-                    <!-- LEFT COLUMN -->
-                    <div class="menu-column">
+            <p style="margin: 0 0 14px; color:#666;">Marinated with mild Cambodian spices, Peanut Sauce
+                served with rice.</p>
 
-                        <div class="list-item" id="item-chicken-satay">
-                            <div class="item-info">
-                                <p class="item-name">Chicken Satay</p>
-                                <p class="item-desc">Chicken marinated in mild Cambodian spices and topped with peanut
-                                    satay
-                                    sauce,
-                                    served with rice and coleslaw.</p>
-                            </div>
-                            <div class="item-meta">
-                                <p class="item-price">NZ$18.90</p>
-                                <p class="item-rating">97% (212)</p>
-                            </div>
+            <div class="two-column-menu">
+                <!-- LEFT COLUMN -->
+                <div class="menu-column">
+
+                    <div class="list-item" id="item-chicken-satay">
+                        <div class="item-info">
+                            <p class="item-name">Chicken Satay</p>
+                            <p class="item-desc">Chicken marinated in mild Cambodian spices and topped with peanut
+                                satay
+                                sauce,
+                                served with rice and coleslaw.</p>
                         </div>
-
-                        <div class="list-item" id="item-meurs-satay-burger">
-                            <div class="item-info">
-                                <p class="item-name">Meurs Satay Burger</p>
-                                <p class="item-desc">A quick, tasty favourite — satay flavour with rich peanut sauce on
-                                    a
-                                    sesame seed bun.</p>
-                            </div>
-                            <div class="item-meta">
-                                <p class="item-price">NZ$8.50</p>
-                                <p class="item-rating">96% (76)</p>
-                            </div>
+                        <div class="item-meta">
+                            <p class="item-price">NZ$18.90</p>
+                            <p class="item-rating">97% (212)</p>
                         </div>
-
-                        <div class="list-item" id="item-beef-satay">
-                            <div class="item-info">
-                                <p class="item-name">Beef Satay</p>
-                                <p class="item-desc">Tender beef marinated in mild Cambodian spices and topped with
-                                    peanut satay
-                                    sauce,
-                                    served with rice and coleslaw.</p>
-                            </div>
-                            <div class="item-meta">
-                                <p class="item-price">NZ$18.90</p>
-                                <p class="item-rating">98% (60)</p>
-                            </div>
-                        </div>
-
-                        <div class="list-item" id="item-garlic-chicken-satay">
-                            <div class="item-info">
-                                <p class="item-name">Garlic Chicken Satay</p>
-                                <p class="item-desc">Garlic-forward chicken marinated in mild Cambodian spices and
-                                    topped with peanut satay
-                                    sauce,
-                                    served with rice.</p>
-                            </div>
-                            <div class="item-meta">
-                                <p class="item-price">NZ$20.50</p>
-                                <p class="item-rating">100% (23)</p>
-                            </div>
-                        </div>
-
                     </div>
 
-                    <!-- RIGHT COLUMN -->
-                    <div class="menu-column">
-
-                        <div class="list-item" id="item-combination-satay">
-                            <div class="item-info">
-                                <p class="item-name">Combination Satay</p>
-                                <p class="item-desc">A generous mix in our signature satay, Cambodian-style coleslaw and
-                                    peanut
-                                    sauce,
-                                    served on rice.</p>
-                            </div>
-                            <div class="item-meta">
-                                <p class="item-price">NZ$19.20</p>
-                                <p class="item-rating">100% (30)</p>
-                            </div>
+                    <div class="list-item" id="item-meurs-satay-burger">
+                        <div class="item-info">
+                            <p class="item-name">Meurs Satay Burger</p>
+                            <p class="item-desc">A quick, tasty favourite — satay flavour with rich peanut sauce on
+                                a
+                                sesame seed bun.</p>
                         </div>
-
-                        <div class="list-item" id="item-sweet-and-sour-satay">
-                            <div class="item-info">
-                                <p class="item-name">Sweet and Sour Satay</p>
-                                <p class="item-desc">A sweet-and-tangy twist on our satay, finished with creamy
-                                    peanut
-                                    sauce and served on rice.</p>
-                            </div>
-                            <div class="item-meta">
-                                <p class="item-price">NZ$17.90</p>
-                                <p class="item-rating">100% (4)</p>
-                            </div>
+                        <div class="item-meta">
+                            <p class="item-price">NZ$8.50</p>
+                            <p class="item-rating">96% (76)</p>
                         </div>
+                    </div>
 
-                        <div class="list-item" id="item-tofu-vegetable-satay">
-                            <div class="item-info">
-                                <p class="item-name">Tofu & Vegetable Satay</p>
-                                <p class="item-desc">Tofu and mixed vegetables in a mild satay spices with peanut
-                                    sauce, served on rice.</p>
-                            </div>
-                            <div class="item-meta">
-                                <p class="item-price">NZ$17.90</p>
-                            </div>
+                    <div class="list-item" id="item-beef-satay">
+                        <div class="item-info">
+                            <p class="item-name">Beef Satay</p>
+                            <p class="item-desc">Tender beef marinated in mild Cambodian spices and topped with
+                                peanut satay
+                                sauce,
+                                served with rice and coleslaw.</p>
                         </div>
-
-                        <div class="list-item" id="item-vegetarian-satay">
-                            <div class="item-info">
-                                <p class="item-name">Vegetarian Satay (V)</p>
-                                <p class="item-desc">A comforting vegetarian satay, peanut sauce and
-                                    mixed
-                                    vegetables served on rice.</p>
-                            </div>
-                            <div class="item-meta">
-                                <p class="item-price">NZ$16.60</p>
-                            </div>
+                        <div class="item-meta">
+                            <p class="item-price">NZ$18.90</p>
+                            <p class="item-rating">98% (60)</p>
                         </div>
+                    </div>
 
+                    <div class="list-item" id="item-garlic-chicken-satay">
+                        <div class="item-info">
+                            <p class="item-name">Garlic Chicken Satay</p>
+                            <p class="item-desc">Garlic-forward chicken marinated in mild Cambodian spices and
+                                topped with peanut satay
+                                sauce,
+                                served with rice.</p>
+                        </div>
+                        <div class="item-meta">
+                            <p class="item-price">NZ$20.50</p>
+                            <p class="item-rating">100% (23)</p>
+                        </div>
                     </div>
 
                 </div>
+
+                <!-- RIGHT COLUMN -->
+                <div class="menu-column">
+
+                    <div class="list-item" id="item-combination-satay">
+                        <div class="item-info">
+                            <p class="item-name">Combination Satay</p>
+                            <p class="item-desc">A generous mix in our signature satay, Cambodian-style coleslaw and
+                                peanut
+                                sauce,
+                                served on rice.</p>
+                        </div>
+                        <div class="item-meta">
+                            <p class="item-price">NZ$19.20</p>
+                            <p class="item-rating">100% (30)</p>
+                        </div>
+                    </div>
+
+                    <div class="list-item" id="item-sweet-and-sour-satay">
+                        <div class="item-info">
+                            <p class="item-name">Sweet and Sour Satay</p>
+                            <p class="item-desc">A sweet-and-tangy twist on our satay, finished with creamy
+                                peanut
+                                sauce and served on rice.</p>
+                        </div>
+                        <div class="item-meta">
+                            <p class="item-price">NZ$17.90</p>
+                            <p class="item-rating">100% (4)</p>
+                        </div>
+                    </div>
+
+                    <div class="list-item" id="item-tofu-vegetable-satay">
+                        <div class="item-info">
+                            <p class="item-name">Tofu & Vegetable Satay</p>
+                            <p class="item-desc">Tofu and mixed vegetables in a mild satay spices with peanut
+                                sauce, served on rice.</p>
+                        </div>
+                        <div class="item-meta">
+                            <p class="item-price">NZ$17.90</p>
+                        </div>
+                    </div>
+
+                    <div class="list-item" id="item-vegetarian-satay">
+                        <div class="item-info">
+                            <p class="item-name">Vegetarian Satay (V)</p>
+                            <p class="item-desc">A comforting vegetarian satay, peanut sauce and
+                                mixed
+                                vegetables served on rice.</p>
+                        </div>
+                        <div class="item-meta">
+                            <p class="item-price">NZ$16.60</p>
+                        </div>
+                    </div>
+
+                </div>
+
             </div>
         </div>
     </section>
 
-    <section id="friednoodles" class="menu-section alt collapsible-section">
+    <section id="friednoodles" class="menu-section alt">
         <div class="container">
-            <h2 class="section-title" tabindex="0" role="button" aria-expanded="false">
-                Fried Noodles • Chow Mein • Kuy Teaw Cha
+            <h2 class="section-title">
+                Fried Noodles
             </h2>
-            <div class="section-content">
-                <p style="margin: 0 0 14px; color:#666;">
-                    Stir-fried noodles cooked fresh to order with vegetables and house sauces.
-                </p>
 
-                <div class="two-column-menu">
-                    <!-- LEFT COLUMN -->
-                    <div class="menu-column">
+            <p style="margin: 0 0 14px; color:#666;">
+                Chow Mein | Kuy Teaw Cha | Stir-fried noodles cooked fresh to order with vegetables and house sauces.
+            </p>
 
-                        <div class="list-item" id="item-chicken-chow-mein">
-                            <div class="item-info">
-                                <p class="item-name">Chicken Chow Mein</p>
-                                <p class="item-desc">Stir-fried egg noodles with chicken and vegetables, finished with
-                                    spring
-                                    onions.</p>
-                            </div>
-                            <div class="item-meta">
-                                <p class="item-price">NZ$21.50</p>
-                                <p class="item-rating">92% (42)</p>
-                            </div>
+            <div class="two-column-menu">
+                <!-- LEFT COLUMN -->
+                <div class="menu-column">
+
+                    <div class="list-item" id="item-chicken-chow-mein">
+                        <div class="item-info">
+                            <p class="item-name">Chicken Chow Mein</p>
+                            <p class="item-desc">Stir-fried egg noodles with chicken and vegetables, finished with
+                                spring
+                                onions.</p>
                         </div>
-
-                        <div class="list-item" id="item-combination-chow-mein">
-                            <div class="item-info">
-                                <p class="item-name">Combination Chow Mein</p>
-                                <p class="item-desc">Stir-fried egg noodles with a hearty combination and vegetables,
-                                    topped
-                                    with spring onions.</p>
-                            </div>
-                            <div class="item-meta">
-                                <p class="item-price">NZ$22.80</p>
-                                <p class="item-rating">80% (10)</p>
-                            </div>
+                        <div class="item-meta">
+                            <p class="item-price">NZ$21.50</p>
+                            <p class="item-rating">92% (42)</p>
                         </div>
-
-                        <div class="list-item" id="item-tofu-chow-mein">
-                            <div class="item-info">
-                                <p class="item-name">Tofu Chow Mein</p>
-                                <p class="item-desc">Stir-fried egg noodles with tofu and mixed vegetables, finished
-                                    with spring
-                                    onions.</p>
-                            </div>
-                            <div class="item-meta">
-                                <p class="item-price">NZ$20.50</p>
-                                <p class="item-rating">100% (7)</p>
-                            </div>
-                        </div>
-
-                        <div class="list-item" id="item-beef-chow-mein">
-                            <div class="item-info">
-                                <p class="item-name">Beef Chow Mein</p>
-                                <p class="item-desc">Stir-fried egg noodles with beef and vegetables, topped with spring
-                                    onions.</p>
-                            </div>
-                            <div class="item-meta">
-                                <p class="item-price">NZ$20.50</p>
-                                <p class="item-rating">100% (6)</p>
-                            </div>
-                        </div>
-
-                        <div class="list-item" id="item-hot-spicy-chow-mein">
-                            <div class="item-info">
-                                <p class="item-name">Hot & Spicy Chow Mein</p>
-                                <p class="item-desc">Spicy stir-fried egg noodles with vegetables and spring onions.
-                                    <strong>Hot Spicy</strong>
-                                </p>
-                            </div>
-                            <div class="item-meta">
-                                <p class="item-price">NZ$22.80</p>
-                                <p class="item-rating">100% (4)</p>
-                            </div>
-                        </div>
-
-                        <div class="list-item" id="item-seafood-chow-mein">
-                            <div class="item-info">
-                                <p class="item-name">Seafood Chow Mein</p>
-                                <p class="item-desc">Stir-fried egg noodles with mixed seafood and vegetables, topped
-                                    with spring onions.</p>
-                            </div>
-                            <div class="item-meta">
-                                <p class="item-price">NZ$23.10</p>
-                            </div>
-                        </div>
-
-                        <div class="list-item" id="item-pad-see-ew">
-                            <div class="item-info">
-                                <p class="item-name">Pad See Ew</p>
-                                <p class="item-desc">Wide rice noodles stir-fried with vegetables, pepper and a rich
-                                    savoury sauce — choose your meat.</p>
-                            </div>
-                            <div class="item-meta">
-                                <p class="item-price">NZ$24.10</p>
-                                <p class="item-rating">89% (38)</p>
-                            </div>
-                        </div>
-
-                        <div class="list-item" id="item-chicken-kuy-teaw-cha">
-                            <div class="item-info">
-                                <p class="item-name">Chicken Kuy Teaw Cha</p>
-                                <p class="item-desc">Flat rice noodles stir-fried with chicken, vegetables and a savoury
-                                    gravy-style sauce.</p>
-                            </div>
-                            <div class="item-meta">
-                                <p class="item-price">NZ$20.50</p>
-                            </div>
-                        </div>
-
-                        <div class="list-item" id="item-combination-kuy-teaw-cha">
-                            <div class="item-info">
-                                <p class="item-name">Combination Kuy Teaw Cha</p>
-                                <p class="item-desc">Flat rice noodles stir-fried with a hearty combination, vegetables
-                                    and savoury gravy sauce.</p>
-                            </div>
-                            <div class="item-meta">
-                                <p class="item-price">NZ$22.80</p>
-                            </div>
-                        </div>
-
                     </div>
 
-                    <!-- RIGHT COLUMN -->
-                    <div class="menu-column">
-
-                        <div class="list-item" id="item-tofu-kuy-teaw-cha">
-                            <div class="item-info">
-                                <p class="item-name">Tofu Kuy Teaw Cha</p>
-                                <p class="item-desc">Flat rice noodles stir-fried with tofu, vegetables and savoury
-                                    gravy sauce.</p>
-                            </div>
-                            <div class="item-meta">
-                                <p class="item-price">NZ$20.50</p>
-                                <p class="item-rating">100% (10)</p>
-                            </div>
+                    <div class="list-item" id="item-combination-chow-mein">
+                        <div class="item-info">
+                            <p class="item-name">Combination Chow Mein</p>
+                            <p class="item-desc">Stir-fried egg noodles with a hearty combination and vegetables,
+                                topped
+                                with spring onions.</p>
                         </div>
-
-                        <div class="list-item" id="item-beef-kuy-teaw-cha">
-                            <div class="item-info">
-                                <p class="item-name">Beef Kuy Teaw Cha</p>
-                                <p class="item-desc">Flat rice noodles stir-fried with beef, vegetables and savoury
-                                    gravy sauce.</p>
-                            </div>
-                            <div class="item-meta">
-                                <p class="item-price">NZ$20.50</p>
-                                <p class="item-rating">85% (7)</p>
-                            </div>
+                        <div class="item-meta">
+                            <p class="item-price">NZ$22.80</p>
+                            <p class="item-rating">80% (10)</p>
                         </div>
+                    </div>
 
-                        <div class="list-item" id="item-pud-khee-mao">
-                            <div class="item-info">
-                                <p class="item-name">Pud Khee Mao Stir Fried Noodles</p>
-                                <p class="item-desc">Stir-fried noodles with vegetables and a bold house Cambodian sauce
-                                    — choose your meat.</p>
-                            </div>
-                            <div class="item-meta">
-                                <p class="item-price">NZ$24.10</p>
-                                <p class="item-rating">78% (19)</p>
-                            </div>
+                    <div class="list-item" id="item-tofu-chow-mein">
+                        <div class="item-info">
+                            <p class="item-name">Tofu Chow Mein</p>
+                            <p class="item-desc">Stir-fried egg noodles with tofu and mixed vegetables, finished
+                                with spring
+                                onions.</p>
                         </div>
-
-                        <div class="list-item" id="item-mee-goreng">
-                            <div class="item-info">
-                                <p class="item-name">Mee Goreng Fried Noodle</p>
-                                <p class="item-desc">Thin rice noodles stir-fried with vegetables and garlic.
-                                    <strong>Hot Spicy</strong>
-                                </p>
-                            </div>
-                            <div class="item-meta">
-                                <p class="item-price">NZ$20.50</p>
-                                <p class="item-rating">75% (12)</p>
-                            </div>
+                        <div class="item-meta">
+                            <p class="item-price">NZ$20.50</p>
+                            <p class="item-rating">100% (7)</p>
                         </div>
+                    </div>
 
-                        <div class="list-item" id="item-hot-spicy-seafood-noodle">
-                            <div class="item-info">
-                                <p class="item-name">Hot & Spicy Seafood Noodle</p>
-                                <p class="item-desc">Thin rice noodles stir-fried with mixed seafood, vegetables and
-                                    garlic.
-                                    <strong>Hot Spicy</strong>
-                                </p>
-                            </div>
-                            <div class="item-meta">
-                                <p class="item-price">NZ$23.10</p>
-                                <p class="item-rating">100% (5)</p>
-                            </div>
+                    <div class="list-item" id="item-beef-chow-mein">
+                        <div class="item-info">
+                            <p class="item-name">Beef Chow Mein</p>
+                            <p class="item-desc">Stir-fried egg noodles with beef and vegetables, topped with spring
+                                onions.</p>
                         </div>
-
-                        <div class="list-item" id="item-hot-spicy-combination-noodle">
-                            <div class="item-info">
-                                <p class="item-name">Hot & Spicy Combination Noodle</p>
-                                <p class="item-desc">Thin rice noodles stir-fried with a hearty combination, vegetables
-                                    and garlic.
-                                    <strong>Hot Spicy</strong>
-                                </p>
-                            </div>
-                            <div class="item-meta">
-                                <p class="item-price">NZ$22.80</p>
-                                <p class="item-rating">87% (8)</p>
-                            </div>
+                        <div class="item-meta">
+                            <p class="item-price">NZ$20.50</p>
+                            <p class="item-rating">100% (6)</p>
                         </div>
+                    </div>
 
-                        <div class="list-item" id="item-hot-spicy-chicken-noodle">
-                            <div class="item-info">
-                                <p class="item-name">Hot & Spicy Chicken Noodle</p>
-                                <p class="item-desc">Thin rice noodles stir-fried with chicken, vegetables and garlic.
-                                    <strong>Hot Spicy</strong>
-                                </p>
-                            </div>
-                            <div class="item-meta">
-                                <p class="item-price">NZ$20.50</p>
-                                <p class="item-rating">81% (11)</p>
-                            </div>
+                    <div class="list-item" id="item-hot-spicy-chow-mein">
+                        <div class="item-info">
+                            <p class="item-name">Hot & Spicy Chow Mein</p>
+                            <p class="item-desc">Spicy stir-fried egg noodles with vegetables and spring onions.
+                                <strong>Hot Spicy</strong>
+                            </p>
                         </div>
-
-                        <div class="list-item" id="item-hot-spicy-egg-noodle">
-                            <div class="item-info">
-                                <p class="item-name">Hot & Spicy Egg Noodle</p>
-                                <p class="item-desc">Thin rice noodles stir-fried with egg, vegetables and garlic.
-                                    <strong>Hot Spicy</strong>
-                                </p>
-                            </div>
-                            <div class="item-meta">
-                                <p class="item-price">NZ$20.50</p>
-                            </div>
+                        <div class="item-meta">
+                            <p class="item-price">NZ$22.80</p>
+                            <p class="item-rating">100% (4)</p>
                         </div>
+                    </div>
 
-                        <div class="list-item" id="item-hot-spicy-beef-noodle">
-                            <div class="item-info">
-                                <p class="item-name">Hot & Spicy Beef Noodle</p>
-                                <p class="item-desc">Thin rice noodles stir-fried with beef, vegetables and garlic.
-                                    <strong>Hot Spicy</strong>
-                                </p>
-                            </div>
-                            <div class="item-meta">
-                                <p class="item-price">NZ$20.50</p>
-                                <p class="item-rating">90% (10)</p>
-                            </div>
+                    <div class="list-item" id="item-seafood-chow-mein">
+                        <div class="item-info">
+                            <p class="item-name">Seafood Chow Mein</p>
+                            <p class="item-desc">Stir-fried egg noodles with mixed seafood and vegetables, topped
+                                with spring onions.</p>
                         </div>
-
-                        <div class="list-item" id="item-hot-spicy-tofu-noodle">
-                            <div class="item-info">
-                                <p class="item-name">Hot & Spicy Tofu Noodle</p>
-                                <p class="item-desc">Thin rice noodles stir-fried with tofu, vegetables and garlic.
-                                    <strong>Hot Spicy</strong>
-                                </p>
-                            </div>
-                            <div class="item-meta">
-                                <p class="item-price">NZ$20.50</p>
-                                <p class="item-rating">75% (8)</p>
-                            </div>
+                        <div class="item-meta">
+                            <p class="item-price">NZ$23.10</p>
                         </div>
+                    </div>
 
+                    <div class="list-item" id="item-pad-see-ew">
+                        <div class="item-info">
+                            <p class="item-name">Pad See Ew</p>
+                            <p class="item-desc">Wide rice noodles stir-fried with vegetables, pepper and a rich
+                                savoury sauce — choose your meat.</p>
+                        </div>
+                        <div class="item-meta">
+                            <p class="item-price">NZ$24.10</p>
+                            <p class="item-rating">89% (38)</p>
+                        </div>
+                    </div>
+
+                    <div class="list-item" id="item-chicken-kuy-teaw-cha">
+                        <div class="item-info">
+                            <p class="item-name">Chicken Kuy Teaw Cha</p>
+                            <p class="item-desc">Flat rice noodles stir-fried with chicken, vegetables and a savoury
+                                gravy-style sauce.</p>
+                        </div>
+                        <div class="item-meta">
+                            <p class="item-price">NZ$20.50</p>
+                        </div>
+                    </div>
+
+                    <div class="list-item" id="item-combination-kuy-teaw-cha">
+                        <div class="item-info">
+                            <p class="item-name">Combination Kuy Teaw Cha</p>
+                            <p class="item-desc">Flat rice noodles stir-fried with a hearty combination, vegetables
+                                and savoury gravy sauce.</p>
+                        </div>
+                        <div class="item-meta">
+                            <p class="item-price">NZ$22.80</p>
+                        </div>
                     </div>
 
                 </div>
+
+                <!-- RIGHT COLUMN -->
+                <div class="menu-column">
+
+                    <div class="list-item" id="item-tofu-kuy-teaw-cha">
+                        <div class="item-info">
+                            <p class="item-name">Tofu Kuy Teaw Cha</p>
+                            <p class="item-desc">Flat rice noodles stir-fried with tofu, vegetables and savoury
+                                gravy sauce.</p>
+                        </div>
+                        <div class="item-meta">
+                            <p class="item-price">NZ$20.50</p>
+                            <p class="item-rating">100% (10)</p>
+                        </div>
+                    </div>
+
+                    <div class="list-item" id="item-beef-kuy-teaw-cha">
+                        <div class="item-info">
+                            <p class="item-name">Beef Kuy Teaw Cha</p>
+                            <p class="item-desc">Flat rice noodles stir-fried with beef, vegetables and savoury
+                                gravy sauce.</p>
+                        </div>
+                        <div class="item-meta">
+                            <p class="item-price">NZ$20.50</p>
+                            <p class="item-rating">85% (7)</p>
+                        </div>
+                    </div>
+
+                    <div class="list-item" id="item-pud-khee-mao">
+                        <div class="item-info">
+                            <p class="item-name">Pud Khee Mao Stir Fried Noodles</p>
+                            <p class="item-desc">Stir-fried noodles with vegetables and a bold house Cambodian sauce
+                                — choose your meat.</p>
+                        </div>
+                        <div class="item-meta">
+                            <p class="item-price">NZ$24.10</p>
+                            <p class="item-rating">78% (19)</p>
+                        </div>
+                    </div>
+
+                    <div class="list-item" id="item-mee-goreng">
+                        <div class="item-info">
+                            <p class="item-name">Mee Goreng Fried Noodle</p>
+                            <p class="item-desc">Thin rice noodles stir-fried with vegetables and garlic.
+                                <strong>Hot Spicy</strong>
+                            </p>
+                        </div>
+                        <div class="item-meta">
+                            <p class="item-price">NZ$20.50</p>
+                            <p class="item-rating">75% (12)</p>
+                        </div>
+                    </div>
+
+                    <div class="list-item" id="item-hot-spicy-seafood-noodle">
+                        <div class="item-info">
+                            <p class="item-name">Hot & Spicy Seafood Noodle</p>
+                            <p class="item-desc">Thin rice noodles stir-fried with mixed seafood, vegetables and
+                                garlic.
+                                <strong>Hot Spicy</strong>
+                            </p>
+                        </div>
+                        <div class="item-meta">
+                            <p class="item-price">NZ$23.10</p>
+                            <p class="item-rating">100% (5)</p>
+                        </div>
+                    </div>
+
+                    <div class="list-item" id="item-hot-spicy-combination-noodle">
+                        <div class="item-info">
+                            <p class="item-name">Hot & Spicy Combination Noodle</p>
+                            <p class="item-desc">Thin rice noodles stir-fried with a hearty combination, vegetables
+                                and garlic.
+                                <strong>Hot Spicy</strong>
+                            </p>
+                        </div>
+                        <div class="item-meta">
+                            <p class="item-price">NZ$22.80</p>
+                            <p class="item-rating">87% (8)</p>
+                        </div>
+                    </div>
+
+                    <div class="list-item" id="item-hot-spicy-chicken-noodle">
+                        <div class="item-info">
+                            <p class="item-name">Hot & Spicy Chicken Noodle</p>
+                            <p class="item-desc">Thin rice noodles stir-fried with chicken, vegetables and garlic.
+                                <strong>Hot Spicy</strong>
+                            </p>
+                        </div>
+                        <div class="item-meta">
+                            <p class="item-price">NZ$20.50</p>
+                            <p class="item-rating">81% (11)</p>
+                        </div>
+                    </div>
+
+                    <div class="list-item" id="item-hot-spicy-egg-noodle">
+                        <div class="item-info">
+                            <p class="item-name">Hot & Spicy Egg Noodle</p>
+                            <p class="item-desc">Thin rice noodles stir-fried with egg, vegetables and garlic.
+                                <strong>Hot Spicy</strong>
+                            </p>
+                        </div>
+                        <div class="item-meta">
+                            <p class="item-price">NZ$20.50</p>
+                        </div>
+                    </div>
+
+                    <div class="list-item" id="item-hot-spicy-beef-noodle">
+                        <div class="item-info">
+                            <p class="item-name">Hot & Spicy Beef Noodle</p>
+                            <p class="item-desc">Thin rice noodles stir-fried with beef, vegetables and garlic.
+                                <strong>Hot Spicy</strong>
+                            </p>
+                        </div>
+                        <div class="item-meta">
+                            <p class="item-price">NZ$20.50</p>
+                            <p class="item-rating">90% (10)</p>
+                        </div>
+                    </div>
+
+                    <div class="list-item" id="item-hot-spicy-tofu-noodle">
+                        <div class="item-info">
+                            <p class="item-name">Hot & Spicy Tofu Noodle</p>
+                            <p class="item-desc">Thin rice noodles stir-fried with tofu, vegetables and garlic.
+                                <strong>Hot Spicy</strong>
+                            </p>
+                        </div>
+                        <div class="item-meta">
+                            <p class="item-price">NZ$20.50</p>
+                            <p class="item-rating">75% (8)</p>
+                        </div>
+                    </div>
+
+                </div>
+
+
             </div>
         </div>
     </section>
 
-    <section id="rice" class="menu-section collapsible-section">
+    <section id="rice" class="menu-section">
         <div class="container">
-            <h2 class="section-title" tabindex="0" role="button" aria-expanded="false">
-                Rice Dishes • Stir Fry • Fried Rice
+            <h2 class="section-title">
+                Rice Dishes
             </h2>
-            <div class="section-content">
-                <p style="margin: 0 0 14px; color:#666;">Hearty rice dishes cooked fresh — from classic stir-fry to
-                    fried rice favourites.</p>
 
-                <div class="two-column-menu">
-                    <!-- LEFT COLUMN -->
-                    <div class="menu-column">
+            <p style="margin: 0 0 14px; color:#666;">Hearty rice dishes cooked fresh — from classic stir-fry to
+                fried rice favourites.</p>
 
-                        <div class="list-item" id="item-chicken-stir-fry">
-                            <div class="item-info">
-                                <p class="item-name">Chicken Stir Fry</p>
-                                <p class="item-desc">Stir-fried vegetables and chicken in a savoury Cambodian-style
-                                    sauce, served with steamed rice.</p>
-                            </div>
-                            <div class="item-meta">
-                                <p class="item-price">NZ$20.50</p>
-                                <p class="item-rating">83% (12)</p>
-                            </div>
+            <div class="two-column-menu">
+                <!-- LEFT COLUMN -->
+                <div class="menu-column">
+
+                    <div class="list-item" id="item-chicken-stir-fry">
+                        <div class="item-info">
+                            <p class="item-name">Chicken Stir Fry</p>
+                            <p class="item-desc">Stir-fried vegetables and chicken in a savoury Cambodian-style
+                                sauce, served with steamed rice.</p>
                         </div>
-
-                        <div class="list-item" id="item-combination-stir-fry">
-                            <div class="item-info">
-                                <p class="item-name">Combination Stir Fry</p>
-                                <p class="item-desc">A generous mix stir-fried with vegetables in Cambodian-style sauce,
-                                    served with steamed rice.</p>
-                            </div>
-                            <div class="item-meta">
-                                <p class="item-price">NZ$22.80</p>
-                                <p class="item-rating">100% (8)</p>
-                            </div>
+                        <div class="item-meta">
+                            <p class="item-price">NZ$20.50</p>
+                            <p class="item-rating">83% (12)</p>
                         </div>
-
-                        <div class="list-item" id="item-tofu-stir-fry">
-                            <div class="item-info">
-                                <p class="item-name">Tofu Stir Fry</p>
-                                <p class="item-desc">Tofu and vegetables stir-fried in a savoury Cambodian-style sauce,
-                                    served with steamed rice.</p>
-                            </div>
-                            <div class="item-meta">
-                                <p class="item-price">NZ$20.50</p>
-                                <p class="item-rating">100% (7)</p>
-                            </div>
-                        </div>
-
-                        <div class="list-item" id="item-beef-stir-fry">
-                            <div class="item-info">
-                                <p class="item-name">Beef Stir Fry</p>
-                                <p class="item-desc">Beef and vegetables stir-fried in a savoury Cambodian-style sauce,
-                                    served with steamed rice.</p>
-                            </div>
-                            <div class="item-meta">
-                                <p class="item-price">NZ$20.50</p>
-                                <p class="item-rating">100% (6)</p>
-                            </div>
-                        </div>
-
-                        <div class="list-item" id="item-seafood-stir-fry">
-                            <div class="item-info">
-                                <p class="item-name">Seafood Stir Fry</p>
-                                <p class="item-desc">Mixed seafood and vegetables stir-fried in a savoury
-                                    Cambodian-style sauce, served with steamed rice.</p>
-                            </div>
-                            <div class="item-meta">
-                                <p class="item-price">NZ$23.10</p>
-                                <p class="item-rating">100% (4)</p>
-                            </div>
-                        </div>
-
-                        <div class="list-item" id="item-chicken-and-ginger">
-                            <div class="item-info">
-                                <p class="item-name">Chicken and Ginger</p>
-                                <p class="item-desc">A warming stir-fry with chicken, vegetables and ginger, served with
-                                    steamed rice.</p>
-                            </div>
-                            <div class="item-meta">
-                                <p class="item-price">NZ$23.10</p>
-                                <p class="item-rating">100% (4)</p>
-                            </div>
-                        </div>
-
-                        <div class="list-item" id="item-egg-stir-fry">
-                            <div class="item-info">
-                                <p class="item-name">Egg Stir Fry</p>
-                                <p class="item-desc">Vegetables and egg stir-fried in Cambodian-style sauce, served with
-                                    steamed rice.</p>
-                            </div>
-                            <div class="item-meta">
-                                <p class="item-price">NZ$20.50</p>
-                            </div>
-                        </div>
-
-                        <div class="list-item" id="item-sweet-and-sour-pork">
-                            <div class="item-info">
-                                <p class="item-name">Sweet and Sour Pork</p>
-                                <p class="item-desc">Crispy deep-fried pork in sweet and sour sauce, served with steamed
-                                    rice.</p>
-                            </div>
-                            <div class="item-meta">
-                                <p class="item-price">NZ$24.50</p>
-                                <p class="item-rating">81% (93)</p>
-                            </div>
-                        </div>
-
-                        <div class="list-item" id="item-sweet-and-sour-chicken">
-                            <div class="item-info">
-                                <p class="item-name">Sweet and Sour Chicken</p>
-                                <p class="item-desc">Tender chicken in classic sweet and sour sauce, served with steamed
-                                    rice.</p>
-                            </div>
-                            <div class="item-meta">
-                                <p class="item-price">NZ$23.50</p>
-                                <p class="item-rating">76% (17)</p>
-                            </div>
-                        </div>
-
-                        <div class="list-item" id="item-sweet-and-sour-wontons">
-                            <div class="item-info">
-                                <p class="item-name">Sweet and Sour Wontons</p>
-                                <p class="item-desc">Crispy wontons tossed in sweet and sour sauce, served with steamed
-                                    rice.</p>
-                            </div>
-                            <div class="item-meta">
-                                <p class="item-price">NZ$23.50</p>
-                            </div>
-                        </div>
-
                     </div>
 
-                    <!-- RIGHT COLUMN -->
-                    <div class="menu-column">
-
-                        <div class="list-item" id="item-chicken-fried-rice">
-                            <div class="item-info">
-                                <p class="item-name">Chicken Fried Rice</p>
-                                <p class="item-desc">Stir-fried rice with chicken and vegetables, finished with spring
-                                    onions.</p>
-                            </div>
-                            <div class="item-meta">
-                                <p class="item-price">NZ$17.90</p>
-                                <p class="item-rating">85% (48)</p>
-                            </div>
+                    <div class="list-item" id="item-combination-stir-fry">
+                        <div class="item-info">
+                            <p class="item-name">Combination Stir Fry</p>
+                            <p class="item-desc">A generous mix stir-fried with vegetables in Cambodian-style sauce,
+                                served with steamed rice.</p>
                         </div>
-
-                        <div class="list-item" id="item-honey-bbq-pork-fried-rice">
-                            <div class="item-info">
-                                <p class="item-name">Honey BBQ Pork Fried Rice</p>
-                                <p class="item-desc">Fried rice with honey BBQ pork and vegetables, finished with spring
-                                    onions.</p>
-                            </div>
-                            <div class="item-meta">
-                                <p class="item-price">NZ$24.10</p>
-                                <p class="item-rating">76% (34)</p>
-                            </div>
+                        <div class="item-meta">
+                            <p class="item-price">NZ$22.80</p>
+                            <p class="item-rating">100% (8)</p>
                         </div>
-
-                        <div class="list-item" id="item-nasi-goreng-fried-rice">
-                            <div class="item-info">
-                                <p class="item-name">Nasi Goreng Fried Rice</p>
-                                <p class="item-desc">Indonesian-style fried rice with vegetables and savoury seasoning,
-                                    finished with spring onions.</p>
-                            </div>
-                            <div class="item-meta">
-                                <p class="item-price">NZ$19.20</p>
-                                <p class="item-rating">73% (23)</p>
-                            </div>
-                        </div>
-
-                        <div class="list-item" id="item-beef-fried-rice">
-                            <div class="item-info">
-                                <p class="item-name">Beef Fried Rice</p>
-                                <p class="item-desc">Fried rice with beef and vegetables, finished with spring onions.
-                                </p>
-                            </div>
-                            <div class="item-meta">
-                                <p class="item-price">NZ$17.90</p>
-                                <p class="item-rating">92% (14)</p>
-                            </div>
-                        </div>
-
-                        <div class="list-item" id="item-egg-fried-rice">
-                            <div class="item-info">
-                                <p class="item-name">Egg Fried Rice</p>
-                                <p class="item-desc">Classic egg fried rice with vegetables, finished with spring
-                                    onions.</p>
-                            </div>
-                            <div class="item-meta">
-                                <p class="item-price">NZ$16.60</p>
-                                <p class="item-rating">100% (6)</p>
-                            </div>
-                        </div>
-
-                        <div class="list-item" id="item-tofu-fried-rice">
-                            <div class="item-info">
-                                <p class="item-name">Tofu Fried Rice</p>
-                                <p class="item-desc">Fried rice with tofu and vegetables, finished with spring onions.
-                                </p>
-                            </div>
-                            <div class="item-meta">
-                                <p class="item-price">NZ$17.90</p>
-                                <p class="item-rating">100% (3)</p>
-                            </div>
-                        </div>
-
-                        <div class="list-item" id="item-satay-fried-rice">
-                            <div class="item-info">
-                                <p class="item-name">Satay Fried Rice</p>
-                                <p class="item-desc">Fried rice with vegetables and a satay-style flavour, finished with
-                                    spring onions.</p>
-                            </div>
-                            <div class="item-meta">
-                                <p class="item-price">NZ$19.20</p>
-                                <p class="item-rating">80% (5)</p>
-                            </div>
-                        </div>
-
-                        <div class="list-item" id="item-combination-fried-rice">
-                            <div class="item-info">
-                                <p class="item-name">Combination Fried Rice</p>
-                                <p class="item-desc">A hearty combination fried rice with vegetables, finished with
-                                    spring onions.</p>
-                            </div>
-                            <div class="item-meta">
-                                <p class="item-price">NZ$20.50</p>
-                                <p class="item-rating">95% (24)</p>
-                            </div>
-                        </div>
-
-                        <div class="list-item" id="item-roast-pork-fried-rice">
-                            <div class="item-info">
-                                <p class="item-name">Roast Pork Fried Rice</p>
-                                <p class="item-desc">Fried rice with roast pork and vegetables, finished with spring
-                                    onions.</p>
-                            </div>
-                            <div class="item-meta">
-                                <p class="item-price">NZ$20.50</p>
-                                <p class="item-rating">100% (8)</p>
-                            </div>
-                        </div>
-
-                        <div class="list-item" id="item-shrimp-fried-rice">
-                            <div class="item-info">
-                                <p class="item-name">Shrimp Fried Rice</p>
-                                <p class="item-desc">Fried rice with shrimp and vegetables, finished with spring onions.
-                                </p>
-                            </div>
-                            <div class="item-meta">
-                                <p class="item-price">NZ$20.50</p>
-                                <p class="item-rating">100% (4)</p>
-                            </div>
-                        </div>
-
-                        <div class="list-item" id="item-vegetable-fried-rice">
-                            <div class="item-info">
-                                <p class="item-name">Vegetable Fried Rice</p>
-                                <p class="item-desc">Fried rice packed with mixed vegetables, finished with spring
-                                    onions.</p>
-                            </div>
-                            <div class="item-meta">
-                                <p class="item-price">NZ$16.60</p>
-                                <p class="item-rating">100% (7)</p>
-                            </div>
-                        </div>
-
-                        <div class="list-item" id="item-bacon-egg-fried-rice">
-                            <div class="item-info">
-                                <p class="item-name">Bacon and Egg Fried Rice</p>
-                                <p class="item-desc">Classic fried rice with bacon, egg and vegetables, finished with
-                                    spring onions.</p>
-                            </div>
-                            <div class="item-meta">
-                                <p class="item-price">NZ$20.50</p>
-                            </div>
-                        </div>
-
-                        <div class="list-item" id="item-seafood-fried-rice">
-                            <div class="item-info">
-                                <p class="item-name">Seafood Fried Rice</p>
-                                <p class="item-desc">Fried rice with mixed seafood and vegetables, finished with spring
-                                    onions.</p>
-                            </div>
-                            <div class="item-meta">
-                                <p class="item-price">NZ$22.80</p>
-                            </div>
-                        </div>
-
-                        <div class="list-item" id="item-curry-fried-rice">
-                            <div class="item-info">
-                                <p class="item-name">Curry Fried Rice</p>
-                                <p class="item-desc">Fried rice with vegetables and a warm curry-style flavour, finished
-                                    with spring onions.</p>
-                            </div>
-                            <div class="item-meta">
-                                <p class="item-price">NZ$20.50</p>
-                            </div>
-                        </div>
-
                     </div>
+
+                    <div class="list-item" id="item-tofu-stir-fry">
+                        <div class="item-info">
+                            <p class="item-name">Tofu Stir Fry</p>
+                            <p class="item-desc">Tofu and vegetables stir-fried in a savoury Cambodian-style sauce,
+                                served with steamed rice.</p>
+                        </div>
+                        <div class="item-meta">
+                            <p class="item-price">NZ$20.50</p>
+                            <p class="item-rating">100% (7)</p>
+                        </div>
+                    </div>
+
+                    <div class="list-item" id="item-beef-stir-fry">
+                        <div class="item-info">
+                            <p class="item-name">Beef Stir Fry</p>
+                            <p class="item-desc">Beef and vegetables stir-fried in a savoury Cambodian-style sauce,
+                                served with steamed rice.</p>
+                        </div>
+                        <div class="item-meta">
+                            <p class="item-price">NZ$20.50</p>
+                            <p class="item-rating">100% (6)</p>
+                        </div>
+                    </div>
+
+                    <div class="list-item" id="item-seafood-stir-fry">
+                        <div class="item-info">
+                            <p class="item-name">Seafood Stir Fry</p>
+                            <p class="item-desc">Mixed seafood and vegetables stir-fried in a savoury
+                                Cambodian-style sauce, served with steamed rice.</p>
+                        </div>
+                        <div class="item-meta">
+                            <p class="item-price">NZ$23.10</p>
+                            <p class="item-rating">100% (4)</p>
+                        </div>
+                    </div>
+
+                    <div class="list-item" id="item-chicken-and-ginger">
+                        <div class="item-info">
+                            <p class="item-name">Chicken and Ginger</p>
+                            <p class="item-desc">A warming stir-fry with chicken, vegetables and ginger, served with
+                                steamed rice.</p>
+                        </div>
+                        <div class="item-meta">
+                            <p class="item-price">NZ$23.10</p>
+                            <p class="item-rating">100% (4)</p>
+                        </div>
+                    </div>
+
+                    <div class="list-item" id="item-egg-stir-fry">
+                        <div class="item-info">
+                            <p class="item-name">Egg Stir Fry</p>
+                            <p class="item-desc">Vegetables and egg stir-fried in Cambodian-style sauce, served with
+                                steamed rice.</p>
+                        </div>
+                        <div class="item-meta">
+                            <p class="item-price">NZ$20.50</p>
+                        </div>
+                    </div>
+
+                    <div class="list-item" id="item-sweet-and-sour-pork">
+                        <div class="item-info">
+                            <p class="item-name">Sweet and Sour Pork</p>
+                            <p class="item-desc">Crispy deep-fried pork in sweet and sour sauce, served with steamed
+                                rice.</p>
+                        </div>
+                        <div class="item-meta">
+                            <p class="item-price">NZ$24.50</p>
+                            <p class="item-rating">81% (93)</p>
+                        </div>
+                    </div>
+
+                    <div class="list-item" id="item-sweet-and-sour-chicken">
+                        <div class="item-info">
+                            <p class="item-name">Sweet and Sour Chicken</p>
+                            <p class="item-desc">Tender chicken in classic sweet and sour sauce, served with steamed
+                                rice.</p>
+                        </div>
+                        <div class="item-meta">
+                            <p class="item-price">NZ$23.50</p>
+                            <p class="item-rating">76% (17)</p>
+                        </div>
+                    </div>
+
+                    <div class="list-item" id="item-sweet-and-sour-wontons">
+                        <div class="item-info">
+                            <p class="item-name">Sweet and Sour Wontons</p>
+                            <p class="item-desc">Crispy wontons tossed in sweet and sour sauce, served with steamed
+                                rice.</p>
+                        </div>
+                        <div class="item-meta">
+                            <p class="item-price">NZ$23.50</p>
+                        </div>
+                    </div>
+
+                </div>
+
+                <!-- RIGHT COLUMN -->
+                <div class="menu-column">
+
+                    <div class="list-item" id="item-chicken-fried-rice">
+                        <div class="item-info">
+                            <p class="item-name">Chicken Fried Rice</p>
+                            <p class="item-desc">Stir-fried rice with chicken and vegetables, finished with spring
+                                onions.</p>
+                        </div>
+                        <div class="item-meta">
+                            <p class="item-price">NZ$17.90</p>
+                            <p class="item-rating">85% (48)</p>
+                        </div>
+                    </div>
+
+                    <div class="list-item" id="item-honey-bbq-pork-fried-rice">
+                        <div class="item-info">
+                            <p class="item-name">Honey BBQ Pork Fried Rice</p>
+                            <p class="item-desc">Fried rice with honey BBQ pork and vegetables, finished with spring
+                                onions.</p>
+                        </div>
+                        <div class="item-meta">
+                            <p class="item-price">NZ$24.10</p>
+                            <p class="item-rating">76% (34)</p>
+                        </div>
+                    </div>
+
+                    <div class="list-item" id="item-nasi-goreng-fried-rice">
+                        <div class="item-info">
+                            <p class="item-name">Nasi Goreng Fried Rice</p>
+                            <p class="item-desc">Indonesian-style fried rice with vegetables and savoury seasoning,
+                                finished with spring onions.</p>
+                        </div>
+                        <div class="item-meta">
+                            <p class="item-price">NZ$19.20</p>
+                            <p class="item-rating">73% (23)</p>
+                        </div>
+                    </div>
+
+                    <div class="list-item" id="item-beef-fried-rice">
+                        <div class="item-info">
+                            <p class="item-name">Beef Fried Rice</p>
+                            <p class="item-desc">Fried rice with beef and vegetables, finished with spring onions.
+                            </p>
+                        </div>
+                        <div class="item-meta">
+                            <p class="item-price">NZ$17.90</p>
+                            <p class="item-rating">92% (14)</p>
+                        </div>
+                    </div>
+
+                    <div class="list-item" id="item-egg-fried-rice">
+                        <div class="item-info">
+                            <p class="item-name">Egg Fried Rice</p>
+                            <p class="item-desc">Classic egg fried rice with vegetables, finished with spring
+                                onions.</p>
+                        </div>
+                        <div class="item-meta">
+                            <p class="item-price">NZ$16.60</p>
+                            <p class="item-rating">100% (6)</p>
+                        </div>
+                    </div>
+
+                    <div class="list-item" id="item-tofu-fried-rice">
+                        <div class="item-info">
+                            <p class="item-name">Tofu Fried Rice</p>
+                            <p class="item-desc">Fried rice with tofu and vegetables, finished with spring onions.
+                            </p>
+                        </div>
+                        <div class="item-meta">
+                            <p class="item-price">NZ$17.90</p>
+                            <p class="item-rating">100% (3)</p>
+                        </div>
+                    </div>
+
+                    <div class="list-item" id="item-satay-fried-rice">
+                        <div class="item-info">
+                            <p class="item-name">Satay Fried Rice</p>
+                            <p class="item-desc">Fried rice with vegetables and a satay-style flavour, finished with
+                                spring onions.</p>
+                        </div>
+                        <div class="item-meta">
+                            <p class="item-price">NZ$19.20</p>
+                            <p class="item-rating">80% (5)</p>
+                        </div>
+                    </div>
+
+                    <div class="list-item" id="item-combination-fried-rice">
+                        <div class="item-info">
+                            <p class="item-name">Combination Fried Rice</p>
+                            <p class="item-desc">A hearty combination fried rice with vegetables, finished with
+                                spring onions.</p>
+                        </div>
+                        <div class="item-meta">
+                            <p class="item-price">NZ$20.50</p>
+                            <p class="item-rating">95% (24)</p>
+                        </div>
+                    </div>
+
+                    <div class="list-item" id="item-roast-pork-fried-rice">
+                        <div class="item-info">
+                            <p class="item-name">Roast Pork Fried Rice</p>
+                            <p class="item-desc">Fried rice with roast pork and vegetables, finished with spring
+                                onions.</p>
+                        </div>
+                        <div class="item-meta">
+                            <p class="item-price">NZ$20.50</p>
+                            <p class="item-rating">100% (8)</p>
+                        </div>
+                    </div>
+
+                    <div class="list-item" id="item-shrimp-fried-rice">
+                        <div class="item-info">
+                            <p class="item-name">Shrimp Fried Rice</p>
+                            <p class="item-desc">Fried rice with shrimp and vegetables, finished with spring onions.
+                            </p>
+                        </div>
+                        <div class="item-meta">
+                            <p class="item-price">NZ$20.50</p>
+                            <p class="item-rating">100% (4)</p>
+                        </div>
+                    </div>
+
+                    <div class="list-item" id="item-vegetable-fried-rice">
+                        <div class="item-info">
+                            <p class="item-name">Vegetable Fried Rice</p>
+                            <p class="item-desc">Fried rice packed with mixed vegetables, finished with spring
+                                onions.</p>
+                        </div>
+                        <div class="item-meta">
+                            <p class="item-price">NZ$16.60</p>
+                            <p class="item-rating">100% (7)</p>
+                        </div>
+                    </div>
+
+                    <div class="list-item" id="item-bacon-egg-fried-rice">
+                        <div class="item-info">
+                            <p class="item-name">Bacon and Egg Fried Rice</p>
+                            <p class="item-desc">Classic fried rice with bacon, egg and vegetables, finished with
+                                spring onions.</p>
+                        </div>
+                        <div class="item-meta">
+                            <p class="item-price">NZ$20.50</p>
+                        </div>
+                    </div>
+
+                    <div class="list-item" id="item-seafood-fried-rice">
+                        <div class="item-info">
+                            <p class="item-name">Seafood Fried Rice</p>
+                            <p class="item-desc">Fried rice with mixed seafood and vegetables, finished with spring
+                                onions.</p>
+                        </div>
+                        <div class="item-meta">
+                            <p class="item-price">NZ$22.80</p>
+                        </div>
+                    </div>
+
+                    <div class="list-item" id="item-curry-fried-rice">
+                        <div class="item-info">
+                            <p class="item-name">Curry Fried Rice</p>
+                            <p class="item-desc">Fried rice with vegetables and a warm curry-style flavour, finished
+                                with spring onions.</p>
+                        </div>
+                        <div class="item-meta">
+                            <p class="item-price">NZ$20.50</p>
+                        </div>
+                    </div>
+
                 </div>
             </div>
+
         </div>
     </section>
 
     <!-- Sides -->
-    <section id="sides" class="menu-section alt collapsible-section">
+    <section id="sides" class="menu-section alt">
         <div class="container">
-            <h2 class="section-title" tabindex="0" role="button" aria-expanded="false">Extras & Side Dishes</h2>
-            <div class="section-content">
+            <h2 class="section-title">Extras & Side Dishes</h2>
 
-                <div class="two-column-menu">
-                    <!-- LEFT COLUMN — SIDES + EXTRAS -->
-                    <div class="menu-column">
-                        <h3 class="column-title">Sides & Extras</h3>
 
-                        <div class="list-item" id="item-fried-dumplings">
-                            <div class="item-info">
-                                <p class="item-name">Fried Dumplings</p>
-                                <p class="item-desc">Crispy golden dumplings — perfect as a share plate or side.</p>
+            <div class="two-column-menu">
+                <!-- LEFT COLUMN — SIDES + EXTRAS -->
+                <div class="menu-column">
+                    <h3 class="column-title">Sides & Extras</h3>
 
-                            </div>
-                            <div class="item-meta">
-                                <p class="item-price">$10.00</p>
-                                <p class="item-rating">76% (56)</p>
-                            </div>
+                    <div class="list-item" id="item-fried-dumplings">
+                        <div class="item-info">
+                            <p class="item-name">Fried Dumplings</p>
+                            <p class="item-desc">Crispy golden dumplings — perfect as a share plate or side.</p>
+
                         </div>
-
-                        <div class="list-item">
-                            <div class="item-info">
-                                <p class="item-name">Large Spring Rolls</p>
-                                <p class="item-desc">Three pieces.</p>
-                            </div>
-                            <div class="item-meta">
-                                <p class="item-price">$10.00</p>
-                                <p class="item-rating">88% (45)</p>
-                            </div>
-                        </div>
-
-                        <div class="list-item">
-                            <div class="item-info">
-                                <p class="item-name">Fried Wontons</p>
-                                <p class="item-desc">Six pieces.</p>
-                            </div>
-                            <div class="item-meta">
-                                <p class="item-price">$10.00</p>
-                                <p class="item-rating">76% (59)</p>
-                            </div>
-                        </div>
-
-                        <div class="list-item">
-                            <div class="item-info">
-                                <p class="item-name">2 x Chicken Satay Kebab</p>
-                                <p class="item-desc">Two Satay Kebab Sticks</p>
-                            </div>
-                            <div class="item-meta">
-                                <p class="item-price">$10.00</p>
-                                <p class="item-rating">90% (32)</p>
-                            </div>
-                        </div>
-
-                        <div class="list-item">
-                            <div class="item-info">
-                                <p class="item-name">Large Vegetarian Spring Rolls</p>
-                                <p class="item-desc">3 x large vege spring rolls</p>
-                            </div>
-                            <div class="item-meta">
-                                <p class="item-price">$10.00</p>
-                                <p class="item-rating">94% (53)</p>
-                            </div>
-                        </div>
-
-                        <div class="list-item">
-                            <div class="item-info">
-                                <p class="item-name">Large Curry Rice Rolls</p>
-                                <p class="item-desc">3 x curry rice rolls</p>
-                            </div>
-                            <div class="item-meta">
-                                <p class="item-price">$10.00</p>
-                                <p class="item-rating">96% (28)</p>
-                            </div>
-                        </div>
-
-                        <div class="list-item">
-                            <div class="item-info">
-                                <p class="item-name">Rice</p>
-                                <p class="item-desc">Steamed white rice served as a side dish.</p>
-                            </div>
-                            <div class="item-meta">
-                                <p class="item-price">$4.90</p>
-                                <p class="item-rating">100% (10)</p>
-                            </div>
-                        </div>
-
-                        <div class="list-item">
-                            <div class="item-info">
-                                <p class="item-name">Extra Peanut Sauce</p>
-                                <p class="item-desc">Rich and creamy peanut sauce.</p>
-                            </div>
-                            <div class="item-meta">
-                                <p class="item-price">$4.00</p>
-                                <p class="item-rating">94% (18)</p>
-                            </div>
-                        </div>
-
-                        <div class="list-item">
-                            <div class="item-info">
-                                <p class="item-name">2 x Satay Beef Kebabs</p>
-                                <p class="item-desc">Tender marinated beef skewers.</p>
-                            </div>
-                            <div class="item-meta">
-                                <p class="item-price">$10.00</p>
-                                <p class="item-rating">100% (14)</p>
-                            </div>
-                        </div>
-
-                        <div class="list-item">
-                            <div class="item-info">
-                                <p class="item-name">Extra Meat</p>
-                                <p class="item-desc">Additional serving of meat.</p>
-                            </div>
-                            <div class="item-meta">
-                                <p class="item-price">$4.90</p>
-                                <p class="item-rating">85% (7)</p>
-                            </div>
-                        </div>
-
-                        <div class="list-item">
-                            <div class="item-info">
-                                <p class="item-name">Cashew Nuts</p>
-                                <p class="item-desc">Crunchy and flavorful nuts.</p>
-                            </div>
-                            <div class="item-meta">
-                                <p class="item-price">$4.90</p>
-                            </div>
+                        <div class="item-meta">
+                            <p class="item-price">$10.00</p>
+                            <p class="item-rating">76% (56)</p>
                         </div>
                     </div>
 
-                    <!-- RIGHT COLUMN — BEVERAGES -->
-                    <div class="menu-column">
-                        <h3 class="column-title">Beverages</h3>
-
-                        <div class="list-item">
-                            <div class="item-info">
-                                <p class="item-name">Can of Coke ZERO SUGAR</p>
-                            </div>
-                            <div class="item-meta">
-                                <p class="item-price">$4.50</p>
-                                <p class="item-rating">94% (19)</p>
-                            </div>
+                    <div class="list-item">
+                        <div class="item-info">
+                            <p class="item-name">Large Spring Rolls</p>
+                            <p class="item-desc">Three pieces.</p>
                         </div>
-
-                        <div class="list-item">
-                            <div class="item-info">
-                                <p class="item-name">Can of Coke</p>
-                            </div>
-                            <div class="item-meta">
-                                <p class="item-price">$4.50</p>
-                                <p class="item-rating">100% (33)</p>
-                            </div>
+                        <div class="item-meta">
+                            <p class="item-price">$10.00</p>
+                            <p class="item-rating">88% (45)</p>
                         </div>
+                    </div>
 
-                        <div class="list-item">
-                            <div class="item-info">
-                                <p class="item-name">Can of L&P</p>
-                                <p class="item-desc">Classic NZ soft drink.</p>
-                            </div>
-                            <div class="item-meta">
-                                <p class="item-price">$4.50</p>
-                                <p class="item-rating">100% (36)</p>
-                            </div>
+                    <div class="list-item">
+                        <div class="item-info">
+                            <p class="item-name">Fried Wontons</p>
+                            <p class="item-desc">Six pieces.</p>
                         </div>
-
-                        <div class="list-item">
-                            <div class="item-info">
-                                <p class="item-name">Can of Sprite</p>
-                            </div>
-                            <div class="item-meta">
-                                <p class="item-price">$4.50</p>
-                                <p class="item-rating">100% (16)</p>
-                            </div>
+                        <div class="item-meta">
+                            <p class="item-price">$10.00</p>
+                            <p class="item-rating">76% (59)</p>
                         </div>
+                    </div>
 
-                        <div class="list-item">
-                            <div class="item-info">
-                                <p class="item-name">Bundaberg Lemon Lime & Bitters</p>
-                            </div>
-                            <div class="item-meta">
-                                <p class="item-price">$6.50</p>
-                                <p class="item-rating">100% (10)</p>
-                            </div>
+                    <div class="list-item">
+                        <div class="item-info">
+                            <p class="item-name">2 x Chicken Satay Kebab</p>
+                            <p class="item-desc">Two Satay Kebab Sticks</p>
                         </div>
-
-                        <div class="list-item">
-                            <div class="item-info">
-                                <p class="item-name">Bundaberg Ginger Beer</p>
-                            </div>
-                            <div class="item-meta">
-                                <p class="item-price">$6.50</p>
-                                <p class="item-rating">100% (9)</p>
-                            </div>
+                        <div class="item-meta">
+                            <p class="item-price">$10.00</p>
+                            <p class="item-rating">90% (32)</p>
                         </div>
+                    </div>
 
-                        <div class="list-item">
-                            <div class="item-info">
-                                <p class="item-name">Can of Pepsi</p>
-                            </div>
-                            <div class="item-meta">
-                                <p class="item-price">$4.50</p>
-                                <p class="item-rating">100% (5)</p>
-                            </div>
+                    <div class="list-item">
+                        <div class="item-info">
+                            <p class="item-name">Large Vegetarian Spring Rolls</p>
+                            <p class="item-desc">3 x large vege spring rolls</p>
                         </div>
+                        <div class="item-meta">
+                            <p class="item-price">$10.00</p>
+                            <p class="item-rating">94% (53)</p>
+                        </div>
+                    </div>
 
+                    <div class="list-item">
+                        <div class="item-info">
+                            <p class="item-name">Large Curry Rice Rolls</p>
+                            <p class="item-desc">3 x curry rice rolls</p>
+                        </div>
+                        <div class="item-meta">
+                            <p class="item-price">$10.00</p>
+                            <p class="item-rating">96% (28)</p>
+                        </div>
+                    </div>
+
+                    <div class="list-item">
+                        <div class="item-info">
+                            <p class="item-name">Rice</p>
+                            <p class="item-desc">Steamed white rice served as a side dish.</p>
+                        </div>
+                        <div class="item-meta">
+                            <p class="item-price">$4.90</p>
+                            <p class="item-rating">100% (10)</p>
+                        </div>
+                    </div>
+
+                    <div class="list-item">
+                        <div class="item-info">
+                            <p class="item-name">Extra Peanut Sauce</p>
+                            <p class="item-desc">Rich and creamy peanut sauce.</p>
+                        </div>
+                        <div class="item-meta">
+                            <p class="item-price">$4.00</p>
+                            <p class="item-rating">94% (18)</p>
+                        </div>
+                    </div>
+
+                    <div class="list-item">
+                        <div class="item-info">
+                            <p class="item-name">2 x Satay Beef Kebabs</p>
+                            <p class="item-desc">Tender marinated beef skewers.</p>
+                        </div>
+                        <div class="item-meta">
+                            <p class="item-price">$10.00</p>
+                            <p class="item-rating">100% (14)</p>
+                        </div>
+                    </div>
+
+                    <div class="list-item">
+                        <div class="item-info">
+                            <p class="item-name">Extra Meat</p>
+                            <p class="item-desc">Additional serving of meat.</p>
+                        </div>
+                        <div class="item-meta">
+                            <p class="item-price">$4.90</p>
+                            <p class="item-rating">85% (7)</p>
+                        </div>
+                    </div>
+
+                    <div class="list-item">
+                        <div class="item-info">
+                            <p class="item-name">Cashew Nuts</p>
+                            <p class="item-desc">Crunchy and flavorful nuts.</p>
+                        </div>
+                        <div class="item-meta">
+                            <p class="item-price">$4.90</p>
+                        </div>
                     </div>
                 </div>
 
+                <!-- RIGHT COLUMN — BEVERAGES -->
+                <div class="menu-column">
+                    <h3 class="column-title">Beverages</h3>
+
+                    <div class="list-item">
+                        <div class="item-info">
+                            <p class="item-name">Can of Coke ZERO SUGAR</p>
+                        </div>
+                        <div class="item-meta">
+                            <p class="item-price">$4.50</p>
+                            <p class="item-rating">94% (19)</p>
+                        </div>
+                    </div>
+
+                    <div class="list-item">
+                        <div class="item-info">
+                            <p class="item-name">Can of Coke</p>
+                        </div>
+                        <div class="item-meta">
+                            <p class="item-price">$4.50</p>
+                            <p class="item-rating">100% (33)</p>
+                        </div>
+                    </div>
+
+                    <div class="list-item">
+                        <div class="item-info">
+                            <p class="item-name">Can of L&P</p>
+                            <p class="item-desc">Classic NZ soft drink.</p>
+                        </div>
+                        <div class="item-meta">
+                            <p class="item-price">$4.50</p>
+                            <p class="item-rating">100% (36)</p>
+                        </div>
+                    </div>
+
+                    <div class="list-item">
+                        <div class="item-info">
+                            <p class="item-name">Can of Sprite</p>
+                        </div>
+                        <div class="item-meta">
+                            <p class="item-price">$4.50</p>
+                            <p class="item-rating">100% (16)</p>
+                        </div>
+                    </div>
+
+                    <div class="list-item">
+                        <div class="item-info">
+                            <p class="item-name">Bundaberg Lemon Lime & Bitters</p>
+                        </div>
+                        <div class="item-meta">
+                            <p class="item-price">$6.50</p>
+                            <p class="item-rating">100% (10)</p>
+                        </div>
+                    </div>
+
+                    <div class="list-item">
+                        <div class="item-info">
+                            <p class="item-name">Bundaberg Ginger Beer</p>
+                        </div>
+                        <div class="item-meta">
+                            <p class="item-price">$6.50</p>
+                            <p class="item-rating">100% (9)</p>
+                        </div>
+                    </div>
+
+                    <div class="list-item">
+                        <div class="item-info">
+                            <p class="item-name">Can of Pepsi</p>
+                        </div>
+                        <div class="item-meta">
+                            <p class="item-price">$4.50</p>
+                            <p class="item-rating">100% (5)</p>
+                        </div>
+                    </div>
+
+                </div>
             </div>
+
+
         </div>
     </section>
 
