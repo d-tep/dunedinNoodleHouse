@@ -519,6 +519,70 @@ body {
     margin-top: 10px;
 }
 
+/* ---------------------------
+   Back to top button
+--------------------------- */
+
+#backToTop {
+    position: fixed;
+    right: 16px;
+    bottom: 20px;
+    z-index: 1200;
+
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+
+    border: none;
+    background: rgba(29, 53, 87, 0.95);
+    /* primary blue */
+    color: #fff;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    font-size: 22px;
+    font-weight: bold;
+
+    cursor: pointer;
+    opacity: 0;
+    pointer-events: none;
+    transform: translateY(8px);
+
+    transition: opacity 0.25s ease, transform 0.25s ease;
+    -webkit-tap-highlight-color: transparent;
+}
+
+/* Rotate caret to be an up chevron */
+#backToTop svg {
+    width: 22px;
+    height: 22px;
+    stroke: white;
+    stroke-width: 2.5;
+    fill: none;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+}
+
+/* Visible state */
+#backToTop.show {
+    opacity: 1;
+    pointer-events: auto;
+    transform: translateY(0);
+}
+
+/* Slightly larger tap target on mobile */
+@media (max-width: 700px) {
+    #backToTop {
+        width: 48px;
+        height: 48px;
+        right: 14px;
+        bottom: 18px;
+    }
+}
+
+
 /* Responsive tweaks */
 
 @media (max-width: 800px) {

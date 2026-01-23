@@ -163,6 +163,28 @@ document.querySelectorAll('.navbar a[href^="#"]').forEach(link => {
     );
 
     sections.forEach(sec => observer.observe(sec));
+    // ---------- Back to top button ----------
+    (function initBackToTop() {
+        const btn = document.getElementById('backToTop');
+        if (!btn) return;
+
+        const SHOW_AFTER = 400; // px scrolled before showing
+
+        function onScroll() {
+            if (window.scrollY > SHOW_AFTER) {
+                btn.classList.add('show');
+            } else {
+                btn.classList.remove('show');
+            }
+        }
+
+        window.addEventListener('scroll', onScroll, { passive: true });
+
+        btn.addEventListener('click', (e) => {
+            e.preventDefault();
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        });
+    })();
 
     // Set initial active chip on load
     window.addEventListener('load', () => {
