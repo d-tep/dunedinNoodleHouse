@@ -1284,34 +1284,49 @@
 {
   "@context": "https://schema.org",
   "@type": "Restaurant",
+  "@id": "https://dunedinnoodlehouse.online/#restaurant",
   "name": "Dunedin Noodle House",
+  "url": "https://dunedinnoodlehouse.online/",
+  "telephone": "+6434792235",
+  "priceRange": "$$",
+  "servesCuisine": ["Cambodian","Noodle Soup","Satay","Asian","Curry","Thai","Chinese"],
   "address": {
     "@type": "PostalAddress",
     "streetAddress": "16 Hanover Street",
     "addressLocality": "Dunedin",
     "addressRegion": "Otago",
     "postalCode": "9016",
-    "addressCountry": ""
+    "addressCountry": "NZ"
   },
-  "telephone": "+6434792235",
-  "servesCuisine": ["Cambodian","Noodle Soup","Satay","Asian","Curry","Thai","Chinese"],
-  "priceRange": "$$",
-  "menu": {
+  "geo": {
+    "@type": "GeoCoordinates",
+    "latitude": -45.8738,
+    "longitude": 170.5036
+  },
+  "hasMenu": {
     "@type": "Menu",
-    "hasMenuSection": [{
-      "@type": "MenuSection",
-      "name": "Noodle Soup",
-      "hasMenuItem": [{
-        "@type": "MenuItem",
-        "name": "Kua Teaw Noodle Soup",
-        "description": "Traditional Cambodian noodle soup with rice noodles, slow simmered broth and crispy garlic.",
-        "offers": {
-          "@type": "Offer",
-          "price": "17.60",
-          "priceCurrency": "D"
-        }
-      }]
-    }]
+    "@id": "https://dunedinnoodlehouse.online/#menu",
+    "name": "Dunedin Noodle House Menu",
+    "url": "https://dunedinnoodlehouse.online/#menu",
+    "hasMenuSection": [
+      {
+        "@type": "MenuSection",
+        "name": "Noodle Soup",
+        "hasMenuItem": [
+          {
+            "@type": "MenuItem",
+            "name": "Kua Teaw Noodle Soup",
+            "description": "Traditional Cambodian noodle soup with rice noodles, slow simmered broth and crispy garlic.",
+            "offers": {
+              "@type": "Offer",
+              "price": "17.60",
+              "priceCurrency": "NZD",
+              "availability": "https://schema.org/InStock"
+            }
+          }
+        ]
+      }
+    ]
   }
 }
 </script>
