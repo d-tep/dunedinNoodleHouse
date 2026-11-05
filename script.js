@@ -1,3 +1,114 @@
+// ---------- Featured dishes carousel ----------
+(function initPopularCarousel() {
+    const carousel = document.querySelector('.popular-carousel');
+    if (!carousel) return;
+
+    const track = carousel.querySelector('.carousel-track');
+    const slides = Array.from(track.children);
+    if (slides.length < 2) return;
+
+    const controls = carousel.querySelector('.carousel-controls');
+    const dots = Array.from(controls.querySelectorAll('.carousel-dot'));
+    const viewport = carousel.querySelector('.carousel-viewport');
+    const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
+    let index = 0;
+    let playing = !reducedMotion.matches;
+    let hovered = false;
+    let visible = false;
+    let timer = null;
+    let swipeStart = null;
+
+    function schedule() {
+        clearTimeout(timer);
+        if (playing && !hovered && visible && !document.hidden) {
+            timer = setTimeout(() => {
+                show(index + 1);
+                schedule();
+            }, 5000);
+        }
+    }
+
+    function show(next) {
+        index = (next + slides.length) % slides.length;
+        track.style.transform = `translateX(-${index * 100}%)`;
+        slides.forEach((slide, position) => {
+            slide.setAttribute('aria-hidden', String(position !== index));
+            slide.inert = position !== index;
+        });
+        dots.forEach((dot, position) => {
+            dot.setAttribute('aria-current', String(position === index));
+        });
+    }
+
+    function setPlaying(on) {
+        playing = on;
+        schedule();
+    }
+
+    function showLinkedSlide() {
+        const linkedIndex = slides.findIndex(slide => `#${slide.id}` === window.location.hash);
+        if (linkedIndex < 0) return;
+        setPlaying(false);
+        show(linkedIndex);
+    }
+
+    carousel.classList.add('is-carousel');
+    carousel.setAttribute('role', 'region');
+    carousel.setAttribute('aria-roledescription', 'carousel');
+    carousel.setAttribute('aria-label', 'Most popular dishes');
+    slides.forEach((slide, position) => {
+        slide.setAttribute('role', 'group');
+        slide.setAttribute('aria-roledescription', 'slide');
+        slide.setAttribute('aria-label', `${position + 1} of ${slides.length}`);
+        slide.querySelector('img').draggable = false;
+    });
+    controls.hidden = false;
+    show(0);
+    setPlaying(playing);
+    showLinkedSlide();
+    window.addEventListener('hashchange', showLinkedSlide);
+
+    dots.forEach((dot, position) => {
+        dot.addEventListener('click', () => {
+            setPlaying(false);
+            show(position);
+        });
+    });
+    carousel.addEventListener('focusin', () => setPlaying(false));
+    carousel.addEventListener('mouseenter', () => {
+        hovered = true;
+        schedule();
+    });
+    carousel.addEventListener('mouseleave', () => {
+        hovered = false;
+        schedule();
+    });
+    viewport.addEventListener('pointerdown', event => {
+        if (!event.isPrimary || (event.pointerType === 'mouse' && event.button !== 0)) return;
+        setPlaying(false);
+        swipeStart = { x: event.clientX, y: event.clientY, id: event.pointerId };
+        viewport.setPointerCapture(event.pointerId);
+    });
+    viewport.addEventListener('pointerup', event => {
+        if (!swipeStart || swipeStart.id !== event.pointerId) return;
+        const dx = event.clientX - swipeStart.x;
+        const dy = event.clientY - swipeStart.y;
+        swipeStart = null;
+        if (Math.abs(dx) >= 50 && Math.abs(dx) > Math.abs(dy)) {
+            show(index + (dx < 0 ? 1 : -1));
+        }
+    });
+    viewport.addEventListener('pointercancel', () => { swipeStart = null; });
+    document.addEventListener('visibilitychange', schedule);
+    reducedMotion.addEventListener('change', () => {
+        if (reducedMotion.matches) setPlaying(false);
+    });
+    new IntersectionObserver(entries => {
+        visible = entries[0].isIntersecting;
+        schedule();
+    }).observe(carousel);
+})();
+
 // ---------- Mobile hamburger ----------
 document.getElementById('hamburger')?.addEventListener('click', function () {
     document.getElementById('nav-links')?.classList.toggle('show');

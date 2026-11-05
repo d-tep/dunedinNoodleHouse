@@ -409,6 +409,95 @@ body {
     display: block;
 }
 
+/* The static card grid remains the fallback until JavaScript enables sliding. */
+.popular-carousel.is-carousel {
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.is-carousel .carousel-viewport {
+    overflow: hidden;
+    touch-action: pan-y;
+}
+
+.is-carousel .carousel-track {
+    display: flex;
+    gap: 0;
+    transition: transform 0.4s ease;
+}
+
+.is-carousel .menu-item {
+    flex: 0 0 100%;
+    min-width: 0;
+    height: auto;
+}
+
+.is-carousel .menu-item img {
+    height: clamp(180px, 40vw, 300px);
+}
+
+.carousel-controls:not([hidden]) {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    margin-top: 16px;
+}
+
+.carousel-controls button {
+    min-height: 44px;
+    padding: 8px 12px;
+    border: 1px solid var(--primary-blue);
+    border-radius: 5px;
+    background: #fff;
+    color: var(--primary-blue);
+    font: inherit;
+    cursor: pointer;
+}
+
+.carousel-controls button:hover {
+    background: var(--light-gray);
+}
+
+.carousel-controls button:focus-visible {
+    outline: 3px solid var(--primary-blue);
+    outline-offset: 3px;
+}
+
+.carousel-dots {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.carousel-controls .carousel-dot {
+    display: grid;
+    place-items: center;
+    width: 44px;
+    padding: 0;
+    border: 0;
+    border-radius: 50%;
+}
+
+.carousel-dot::before {
+    content: "";
+    width: 10px;
+    height: 10px;
+    border: 1px solid var(--primary-blue);
+    border-radius: 50%;
+}
+
+.carousel-dot[aria-current="true"]::before {
+    background: var(--primary-blue);
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .is-carousel .carousel-track {
+        transition: none;
+    }
+}
+
 /* Two-column list layout */
 
 .two-column-menu {
@@ -519,6 +608,11 @@ body {
     margin-top: 10px;
 }
 
+/* Mobile ordering shortcuts */
+.mobile-order-bar {
+    display: none;
+}
+
 /* ---------------------------
    Back to top button
 --------------------------- */
@@ -574,11 +668,55 @@ body {
 
 /* Slightly larger tap target on mobile */
 @media (max-width: 700px) {
+    body {
+        padding-bottom: calc(76px + env(safe-area-inset-bottom));
+    }
+
+    .mobile-order-bar {
+        position: fixed;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        z-index: 1100;
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 10px;
+        padding: 10px 12px calc(10px + env(safe-area-inset-bottom));
+        background: #fff;
+        border-top: 1px solid #ddd;
+        box-shadow: 0 -2px 8px rgba(0, 0, 0, 0.12);
+    }
+
+    .mobile-order-bar a {
+        display: flex;
+        min-height: 48px;
+        align-items: center;
+        justify-content: center;
+        border-radius: 5px;
+        color: #fff;
+        font-weight: 700;
+        text-align: center;
+        text-decoration: none;
+    }
+
+    .mobile-order-bar a:focus-visible {
+        outline: 3px solid var(--primary-blue);
+        outline-offset: 2px;
+    }
+
+    .mobile-call-btn {
+        background: var(--primary-blue);
+    }
+
+    .mobile-ubereats-btn {
+        background: var(--primary-red);
+    }
+
     #backToTop {
         width: 48px;
         height: 48px;
         right: 14px;
-        bottom: 18px;
+        bottom: calc(86px + env(safe-area-inset-bottom));
     }
 }
 

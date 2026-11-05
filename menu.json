@@ -1,0 +1,1312 @@
+{
+  "sections": [
+    {
+      "id": "noodlesoup",
+      "name": "Noodle Soup (Kuy Teaw)",
+      "nav_label": "Noodle Soup",
+      "mobile_label": "Noodle Soup",
+      "description": "Traditional Cambodian rice noodle soup in a rich, savoury broth with bean sprouts, crispy garlic and spring onions.",
+      "columns": [
+        {
+          "title": "",
+          "items": [
+            {
+              "id": "kua-teaw",
+              "name": "Chicken or Beef Noodle Soup",
+              "description": "Rice noodles in our special Cambodian broth with bean sprouts, and crispy garlic flakes.",
+              "prices": [
+                {
+                  "label": "M",
+                  "amount": "12.00"
+                },
+                {
+                  "label": "L",
+                  "amount": "14.00"
+                }
+              ],
+              "rating": "98% (84)",
+              "popular_order": 1,
+              "image": {
+                "src": "images/noodleSoup.png",
+                "alt": "Cambodian noodle soup Kua Teaw with rice noodles and crispy garlic in Dunedin"
+              }
+            },
+            {
+              "id": "beef-ball-noodle-soup",
+              "name": "Beef Ball Noodle Soup",
+              "description": "Rice noodles in our special broth with beef balls, bean sprouts, and garlic flakes.",
+              "prices": [
+                {
+                  "label": "M",
+                  "amount": "14.00"
+                },
+                {
+                  "label": "L",
+                  "amount": "16.00"
+                }
+              ],
+              "rating": "85% (27)"
+            },
+            {
+              "id": "seafood-noodle-soup",
+              "name": "Seafood Noodle Soup",
+              "description": "Rice noodles with mixed seafood in our signature broth, topped with bean sprouts and crispy garlic.",
+              "prices": [
+                {
+                  "label": "M",
+                  "amount": "15.00"
+                },
+                {
+                  "label": "L",
+                  "amount": "17.00"
+                }
+              ],
+              "rating": "100% (12)"
+            },
+            {
+              "id": "satay-noodle-soup",
+              "name": "Satay Noodle Soup",
+              "description": "Creamy Cambodian satay broth with rice noodles, bean sprouts, and garlic.",
+              "prices": [
+                {
+                  "label": "M",
+                  "amount": "14.00"
+                },
+                {
+                  "label": "L",
+                  "amount": "16.00"
+                }
+              ],
+              "rating": "84% (13)"
+            },
+            {
+              "id": "tom-yum-noodle-soup",
+              "name": "Tom Yum Noodle Soup",
+              "description": "A fragrant, tangy Tom Yum-style soup with rice noodles, bean sprouts, and crispy garlic.",
+              "prices": [
+                {
+                  "label": "M",
+                  "amount": "14.00"
+                },
+                {
+                  "label": "L",
+                  "amount": "16.00"
+                }
+              ],
+              "rating": "88% (17)"
+            },
+            {
+              "id": "tofu-noodle-soup",
+              "name": "Tofu Noodle Soup",
+              "description": "Comforting Cambodian noodle soup with tofu, rice noodles, bean sprouts, and garlic.",
+              "prices": [
+                {
+                  "label": "M",
+                  "amount": "14.00"
+                },
+                {
+                  "label": "L",
+                  "amount": "16.00"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "title": "",
+          "items": [
+            {
+              "id": "vegetable-noodle-soup",
+              "name": "Vegetable Noodle Soup",
+              "description": "Rice noodles with seasonal vegetables in our signature broth, topped with crispy garlic.",
+              "prices": [
+                {
+                  "label": "M",
+                  "amount": "14.00"
+                },
+                {
+                  "label": "L",
+                  "amount": "16.00"
+                }
+              ],
+              "rating": "100% (14)"
+            },
+            {
+              "id": "wonton-noodle-soup",
+              "name": "Wonton Noodle Soup",
+              "description": "Rice noodles with wontons in our special broth, served with bean sprouts and garlic.",
+              "prices": [
+                {
+                  "label": "M",
+                  "amount": "14.00"
+                },
+                {
+                  "label": "L",
+                  "amount": "16.00"
+                }
+              ],
+              "rating": "100% (7)"
+            },
+            {
+              "id": "satay-wonton-noodle-soup",
+              "name": "Satay Wonton Noodle Soup",
+              "description": "Wontons and rice noodles in a creamy satay broth, finished with crispy garlic.",
+              "prices": [
+                {
+                  "label": "M",
+                  "amount": "15.00"
+                },
+                {
+                  "label": "L",
+                  "amount": "17.00"
+                }
+              ]
+            },
+            {
+              "id": "combination-noodle-soup",
+              "name": "Combination Noodle Soup",
+              "description": "A hearty mix of meats with rice noodles in our signature Cambodian broth, topped with crispy garlic.",
+              "prices": [
+                {
+                  "label": "M",
+                  "amount": "14.00"
+                },
+                {
+                  "label": "L",
+                  "amount": "16.00"
+                }
+              ],
+              "rating": "85% (7)"
+            },
+            {
+              "id": "seafood-deluxe-noodle-soup",
+              "name": "Seafood Deluxe Noodle Soup",
+              "description": "Deluxe mixed seafood with rice noodles in our special broth, finished with bean sprouts and garlic.",
+              "prices": [
+                {
+                  "label": "M",
+                  "amount": "16.00"
+                },
+                {
+                  "label": "L",
+                  "amount": "18.00"
+                }
+              ],
+              "rating": "83% (6)"
+            },
+            {
+              "id": "seafood-wonton-noodle-soup",
+              "name": "Seafood Wonton Noodle Soup",
+              "description": "Wontons and mixed seafood with rice noodles in our signature broth, topped with crispy garlic.",
+              "prices": [
+                {
+                  "label": "M",
+                  "amount": "16.00"
+                },
+                {
+                  "label": "L",
+                  "amount": "18.00"
+                }
+              ]
+            },
+            {
+              "id": "laksa",
+              "name": "Laksa",
+              "description": "Fragrant curry laksa served with rice noodles — warming, rich and full of flavour.",
+              "prices": [
+                {
+                  "label": "",
+                  "amount": "18.00"
+                }
+              ],
+              "rating": "98% (60)",
+              "popular_order": 4,
+              "image": {
+                "src": "images/laksaCurry.png",
+                "alt": "Laksa curry with rice noodles and coconut broth at Dunedin Noodle House"
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "satay",
+      "name": "Khmer Satay Dishes",
+      "nav_label": "Satay Dishes",
+      "mobile_label": "Satay",
+      "description": "Marinated with mild Cambodian spices, Peanut Sauce served with rice.",
+      "columns": [
+        {
+          "title": "",
+          "items": [
+            {
+              "id": "chicken-satay",
+              "name": "Chicken Satay",
+              "description": "Chicken marinated in mild Cambodian spices and topped with peanut satay sauce, served with rice and coleslaw.",
+              "prices": [
+                {
+                  "label": "M",
+                  "amount": "14.00"
+                },
+                {
+                  "label": "L",
+                  "amount": "16.00"
+                }
+              ],
+              "rating": "97% (212)",
+              "popular_order": 2,
+              "image": {
+                "src": "images/chickenSatay.png",
+                "alt": "Chicken satay with peanut sauce served with rice or noodles in Dunedin"
+              }
+            },
+            {
+              "id": "meurs-satay-burger",
+              "name": "Meurs Satay Burger",
+              "description": "A quick, tasty favourite — satay flavour with rich peanut sauce on a sesame seed bun.",
+              "prices": [
+                {
+                  "label": "",
+                  "amount": "7.00"
+                }
+              ],
+              "rating": "96% (76)",
+              "popular_order": 3,
+              "image": {
+                "src": "images/satayBurger.png",
+                "alt": "Meurs satay burger with peanut satay sauce on a sesame bun in Dunedin"
+              }
+            },
+            {
+              "id": "beef-satay",
+              "name": "Beef Satay",
+              "description": "Tender beef marinated in mild Cambodian spices and topped with peanut satay sauce, served with rice and coleslaw.",
+              "prices": [
+                {
+                  "label": "M",
+                  "amount": "14.00"
+                },
+                {
+                  "label": "L",
+                  "amount": "16.00"
+                }
+              ],
+              "rating": "98% (60)"
+            },
+            {
+              "id": "garlic-chicken-satay",
+              "name": "Garlic Chicken Satay",
+              "description": "Garlic-forward chicken marinated in mild Cambodian spices and topped with peanut satay sauce, served with rice.",
+              "prices": [
+                {
+                  "label": "M",
+                  "amount": "15.00"
+                },
+                {
+                  "label": "L",
+                  "amount": "17.00"
+                }
+              ],
+              "rating": "100% (23)"
+            }
+          ]
+        },
+        {
+          "title": "",
+          "items": [
+            {
+              "id": "combination-satay",
+              "name": "Combination Satay",
+              "description": "A generous mix in our signature satay, Cambodian-style coleslaw and peanut sauce, served on rice.",
+              "prices": [
+                {
+                  "label": "M",
+                  "amount": "15.00"
+                },
+                {
+                  "label": "L",
+                  "amount": "17.00"
+                }
+              ],
+              "rating": "100% (30)"
+            },
+            {
+              "id": "sweet-and-sour-satay",
+              "name": "Sweet and Sour Satay",
+              "description": "A sweet-and-tangy twist on our satay, finished with creamy peanut sauce and served on rice.",
+              "prices": [
+                {
+                  "label": "M",
+                  "amount": "14.00"
+                },
+                {
+                  "label": "L",
+                  "amount": "16.00"
+                }
+              ],
+              "rating": "100% (4)"
+            },
+            {
+              "id": "tofu-vegetable-satay",
+              "name": "Tofu & Vegetable Satay",
+              "description": "Tofu and mixed vegetables in a mild satay spices with peanut sauce, served on rice.",
+              "prices": [
+                {
+                  "label": "M",
+                  "amount": "14.00"
+                },
+                {
+                  "label": "L",
+                  "amount": "16.00"
+                }
+              ]
+            },
+            {
+              "id": "vegetarian-satay",
+              "name": "Vegetarian Satay (V)",
+              "description": "A comforting vegetarian satay, peanut sauce and mixed vegetables served on rice.",
+              "prices": [
+                {
+                  "label": "M",
+                  "amount": "13.00"
+                },
+                {
+                  "label": "L",
+                  "amount": "15.00"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "friednoodles",
+      "name": "Fried Noodles",
+      "nav_label": "Fried Noodles",
+      "mobile_label": "Fried Noodles",
+      "description": "Chow Mein | Kuy Teaw Cha | Stir-fried noodles cooked fresh to order with vegetables and house sauces.",
+      "columns": [
+        {
+          "title": "",
+          "items": [
+            {
+              "id": "chicken-chow-mein",
+              "name": "Chicken Chow Mein",
+              "description": "Stir-fried egg noodles with chicken and vegetables, finished with spring onions.",
+              "prices": [
+                {
+                  "label": "M",
+                  "amount": "15.00"
+                },
+                {
+                  "label": "L",
+                  "amount": "17.00"
+                }
+              ],
+              "rating": "92% (42)"
+            },
+            {
+              "id": "combination-chow-mein",
+              "name": "Combination Chow Mein",
+              "description": "Stir-fried egg noodles with a hearty combination and vegetables, topped with spring onions.",
+              "prices": [
+                {
+                  "label": "M",
+                  "amount": "16.00"
+                },
+                {
+                  "label": "L",
+                  "amount": "18.00"
+                }
+              ],
+              "rating": "80% (10)"
+            },
+            {
+              "id": "tofu-chow-mein",
+              "name": "Tofu Chow Mein",
+              "description": "Stir-fried egg noodles with tofu and mixed vegetables, finished with spring onions.",
+              "prices": [
+                {
+                  "label": "M",
+                  "amount": "15.00"
+                },
+                {
+                  "label": "L",
+                  "amount": "17.00"
+                }
+              ],
+              "rating": "100% (7)"
+            },
+            {
+              "id": "beef-chow-mein",
+              "name": "Beef Chow Mein",
+              "description": "Stir-fried egg noodles with beef and vegetables, topped with spring onions.",
+              "prices": [
+                {
+                  "label": "M",
+                  "amount": "15.00"
+                },
+                {
+                  "label": "L",
+                  "amount": "17.00"
+                }
+              ],
+              "rating": "100% (6)"
+            },
+            {
+              "id": "hot-spicy-chow-mein",
+              "name": "Hot & Spicy Chow Mein",
+              "description": "Spicy stir-fried egg noodles with vegetables and spring onions.",
+              "prices": [
+                {
+                  "label": "M",
+                  "amount": "15.00"
+                },
+                {
+                  "label": "L",
+                  "amount": "17.00"
+                }
+              ],
+              "spice": "Hot Spicy",
+              "rating": "100% (4)"
+            },
+            {
+              "id": "seafood-chow-mein",
+              "name": "Seafood Chow Mein",
+              "description": "Stir-fried egg noodles with mixed seafood and vegetables, topped with spring onions.",
+              "prices": [
+                {
+                  "label": "M",
+                  "amount": "16.00"
+                },
+                {
+                  "label": "L",
+                  "amount": "18.00"
+                }
+              ]
+            },
+            {
+              "id": "pad-see-ew",
+              "name": "Pad See Ew",
+              "description": "Wide rice noodles stir-fried with vegetables, pepper and a rich savoury sauce — choose your meat.",
+              "prices": [
+                {
+                  "label": "",
+                  "amount": "18.00"
+                }
+              ],
+              "rating": "89% (38)"
+            },
+            {
+              "id": "chicken-kuy-teaw-cha",
+              "name": "Chicken Kuy Teaw Cha",
+              "description": "Flat rice noodles stir-fried with chicken, vegetables and a savoury gravy-style sauce.",
+              "prices": [
+                {
+                  "label": "M",
+                  "amount": "15.00"
+                },
+                {
+                  "label": "L",
+                  "amount": "17.00"
+                }
+              ]
+            },
+            {
+              "id": "combination-kuy-teaw-cha",
+              "name": "Combination Kuy Teaw Cha",
+              "description": "Flat rice noodles stir-fried with a hearty combination, vegetables and savoury gravy sauce.",
+              "prices": [
+                {
+                  "label": "M",
+                  "amount": "16.00"
+                },
+                {
+                  "label": "L",
+                  "amount": "18.00"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "title": "",
+          "items": [
+            {
+              "id": "tofu-kuy-teaw-cha",
+              "name": "Tofu Kuy Teaw Cha",
+              "description": "Flat rice noodles stir-fried with tofu, vegetables and savoury gravy sauce.",
+              "prices": [
+                {
+                  "label": "M",
+                  "amount": "15.00"
+                },
+                {
+                  "label": "L",
+                  "amount": "17.00"
+                }
+              ],
+              "rating": "100% (10)"
+            },
+            {
+              "id": "beef-kuy-teaw-cha",
+              "name": "Beef Kuy Teaw Cha",
+              "description": "Flat rice noodles stir-fried with beef, vegetables and savoury gravy sauce.",
+              "prices": [
+                {
+                  "label": "M",
+                  "amount": "15.00"
+                },
+                {
+                  "label": "L",
+                  "amount": "17.00"
+                }
+              ],
+              "rating": "85% (7)"
+            },
+            {
+              "id": "pud-khee-mao",
+              "name": "Pud Khee Mao Stir Fried Noodles",
+              "description": "Stir-fried noodles with vegetables and a bold house Cambodian sauce — choose your meat.",
+              "prices": [
+                {
+                  "label": "",
+                  "amount": "18.00"
+                }
+              ],
+              "rating": "78% (19)"
+            },
+            {
+              "id": "mee-goreng",
+              "name": "Mee Goreng Fried Noodle",
+              "description": "Thin rice noodles stir-fried with vegetables and garlic.",
+              "prices": [
+                {
+                  "label": "M",
+                  "amount": "15.00"
+                },
+                {
+                  "label": "L",
+                  "amount": "17.00"
+                }
+              ],
+              "spice": "Hot Spicy",
+              "rating": "75% (12)"
+            },
+            {
+              "id": "hot-spicy-seafood-noodle",
+              "name": "Hot & Spicy Seafood Noodle",
+              "description": "Thin rice noodles stir-fried with mixed seafood, vegetables and garlic.",
+              "prices": [
+                {
+                  "label": "M",
+                  "amount": "16.00"
+                },
+                {
+                  "label": "L",
+                  "amount": "18.00"
+                }
+              ],
+              "spice": "Hot Spicy",
+              "rating": "100% (5)"
+            },
+            {
+              "id": "hot-spicy-combination-noodle",
+              "name": "Hot & Spicy Combination Noodle",
+              "description": "Thin rice noodles stir-fried with a hearty combination, vegetables and garlic.",
+              "prices": [
+                {
+                  "label": "M",
+                  "amount": "16.00"
+                },
+                {
+                  "label": "L",
+                  "amount": "18.00"
+                }
+              ],
+              "spice": "Hot Spicy",
+              "rating": "87% (8)"
+            },
+            {
+              "id": "hot-spicy-chicken-noodle",
+              "name": "Hot & Spicy Chicken Noodle",
+              "description": "Thin rice noodles stir-fried with chicken, vegetables and garlic.",
+              "prices": [
+                {
+                  "label": "M",
+                  "amount": "15.00"
+                },
+                {
+                  "label": "L",
+                  "amount": "17.00"
+                }
+              ],
+              "spice": "Hot Spicy",
+              "rating": "81% (11)"
+            },
+            {
+              "id": "hot-spicy-egg-noodle",
+              "name": "Hot & Spicy Egg Noodle",
+              "description": "Thin rice noodles stir-fried with egg, vegetables and garlic.",
+              "prices": [
+                {
+                  "label": "M",
+                  "amount": "15.00"
+                },
+                {
+                  "label": "L",
+                  "amount": "17.00"
+                }
+              ],
+              "spice": "Hot Spicy"
+            },
+            {
+              "id": "hot-spicy-beef-noodle",
+              "name": "Hot & Spicy Beef Noodle",
+              "description": "Thin rice noodles stir-fried with beef, vegetables and garlic.",
+              "prices": [
+                {
+                  "label": "M",
+                  "amount": "15.00"
+                },
+                {
+                  "label": "L",
+                  "amount": "17.00"
+                }
+              ],
+              "spice": "Hot Spicy",
+              "rating": "90% (10)"
+            },
+            {
+              "id": "hot-spicy-tofu-noodle",
+              "name": "Hot & Spicy Tofu Noodle",
+              "description": "Thin rice noodles stir-fried with tofu, vegetables and garlic.",
+              "prices": [
+                {
+                  "label": "M",
+                  "amount": "15.00"
+                },
+                {
+                  "label": "L",
+                  "amount": "17.00"
+                }
+              ],
+              "spice": "Hot Spicy",
+              "rating": "75% (8)"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "rice",
+      "name": "Rice Dishes",
+      "nav_label": "Rice Dishes",
+      "mobile_label": "Rice",
+      "description": "Hearty rice dishes cooked fresh — from classic stir-fry to fried rice favourites.",
+      "columns": [
+        {
+          "title": "",
+          "items": [
+            {
+              "id": "chicken-stir-fry",
+              "name": "Chicken Stir Fry",
+              "description": "Stir-fried vegetables and chicken in a savoury Cambodian-style sauce, served with steamed rice.",
+              "prices": [
+                {
+                  "label": "M",
+                  "amount": "15.00"
+                },
+                {
+                  "label": "L",
+                  "amount": "17.00"
+                }
+              ],
+              "rating": "83% (12)"
+            },
+            {
+              "id": "combination-stir-fry",
+              "name": "Combination Stir Fry",
+              "description": "A generous mix stir-fried with vegetables in Cambodian-style sauce, served with steamed rice.",
+              "prices": [
+                {
+                  "label": "M",
+                  "amount": "16.00"
+                },
+                {
+                  "label": "L",
+                  "amount": "18.00"
+                }
+              ],
+              "rating": "100% (8)"
+            },
+            {
+              "id": "tofu-stir-fry",
+              "name": "Tofu Stir Fry",
+              "description": "Tofu and vegetables stir-fried in a savoury Cambodian-style sauce, served with steamed rice.",
+              "prices": [
+                {
+                  "label": "M",
+                  "amount": "15.00"
+                },
+                {
+                  "label": "L",
+                  "amount": "17.00"
+                }
+              ],
+              "rating": "100% (7)"
+            },
+            {
+              "id": "beef-stir-fry",
+              "name": "Beef Stir Fry",
+              "description": "Beef and vegetables stir-fried in a savoury Cambodian-style sauce, served with steamed rice.",
+              "prices": [
+                {
+                  "label": "M",
+                  "amount": "15.00"
+                },
+                {
+                  "label": "L",
+                  "amount": "17.00"
+                }
+              ],
+              "rating": "100% (6)"
+            },
+            {
+              "id": "seafood-stir-fry",
+              "name": "Seafood Stir Fry",
+              "description": "Mixed seafood and vegetables stir-fried in a savoury Cambodian-style sauce, served with steamed rice.",
+              "prices": [
+                {
+                  "label": "M",
+                  "amount": "16.00"
+                },
+                {
+                  "label": "L",
+                  "amount": "18.00"
+                }
+              ],
+              "rating": "100% (4)"
+            },
+            {
+              "id": "chicken-and-ginger",
+              "name": "Chicken and Ginger",
+              "description": "A warming stir-fry with chicken, vegetables and ginger, served with steamed rice.",
+              "prices": [
+                {
+                  "label": "M",
+                  "amount": "15.00"
+                },
+                {
+                  "label": "L",
+                  "amount": "17.00"
+                }
+              ],
+              "rating": "100% (4)"
+            },
+            {
+              "id": "egg-stir-fry",
+              "name": "Egg Stir Fry",
+              "description": "Vegetables and egg stir-fried in Cambodian-style sauce, served with steamed rice.",
+              "prices": [
+                {
+                  "label": "M",
+                  "amount": "15.00"
+                },
+                {
+                  "label": "L",
+                  "amount": "17.00"
+                }
+              ]
+            },
+            {
+              "id": "sweet-and-sour-pork",
+              "name": "Sweet and Sour Pork",
+              "description": "Crispy deep-fried pork in sweet and sour sauce, served with steamed rice.",
+              "prices": [
+                {
+                  "label": "M",
+                  "amount": "15.00"
+                },
+                {
+                  "label": "L",
+                  "amount": "17.00"
+                }
+              ],
+              "rating": "81% (93)"
+            },
+            {
+              "id": "sweet-and-sour-chicken",
+              "name": "Sweet and Sour Chicken",
+              "description": "Tender chicken in classic sweet and sour sauce, served with steamed rice.",
+              "prices": [
+                {
+                  "label": "M",
+                  "amount": "15.00"
+                },
+                {
+                  "label": "L",
+                  "amount": "17.00"
+                }
+              ],
+              "rating": "76% (17)"
+            },
+            {
+              "id": "sweet-and-sour-wontons",
+              "name": "Sweet and Sour Wontons",
+              "description": "Crispy wontons tossed in sweet and sour sauce, served with steamed rice.",
+              "prices": [
+                {
+                  "label": "M",
+                  "amount": "15.00"
+                },
+                {
+                  "label": "L",
+                  "amount": "17.00"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "title": "",
+          "items": [
+            {
+              "id": "chicken-fried-rice",
+              "name": "Chicken Fried Rice",
+              "description": "Stir-fried rice with chicken and vegetables, finished with spring onions.",
+              "prices": [
+                {
+                  "label": "M",
+                  "amount": "15.00"
+                },
+                {
+                  "label": "L",
+                  "amount": "17.00"
+                }
+              ],
+              "rating": "85% (48)"
+            },
+            {
+              "id": "honey-bbq-pork-fried-rice",
+              "name": "Honey BBQ Pork Fried Rice",
+              "description": "Fried rice with honey BBQ pork and vegetables, finished with spring onions.",
+              "prices": [
+                {
+                  "label": "M",
+                  "amount": "16.00"
+                },
+                {
+                  "label": "L",
+                  "amount": "18.00"
+                }
+              ],
+              "rating": "76% (34)"
+            },
+            {
+              "id": "nasi-goreng-fried-rice",
+              "name": "Nasi Goreng Fried Rice",
+              "description": "Indonesian-style fried rice with vegetables and savoury seasoning, finished with spring onions.",
+              "prices": [
+                {
+                  "label": "M",
+                  "amount": "15.00"
+                },
+                {
+                  "label": "L",
+                  "amount": "17.00"
+                }
+              ],
+              "rating": "73% (23)"
+            },
+            {
+              "id": "beef-fried-rice",
+              "name": "Beef Fried Rice",
+              "description": "Fried rice with beef and vegetables, finished with spring onions.",
+              "prices": [
+                {
+                  "label": "M",
+                  "amount": "15.00"
+                },
+                {
+                  "label": "L",
+                  "amount": "17.00"
+                }
+              ],
+              "rating": "92% (14)"
+            },
+            {
+              "id": "egg-fried-rice",
+              "name": "Egg Fried Rice",
+              "description": "Classic egg fried rice with vegetables, finished with spring onions.",
+              "prices": [
+                {
+                  "label": "M",
+                  "amount": "14.00"
+                },
+                {
+                  "label": "L",
+                  "amount": "16.00"
+                }
+              ],
+              "rating": "100% (6)"
+            },
+            {
+              "id": "tofu-fried-rice",
+              "name": "Tofu Fried Rice",
+              "description": "Fried rice with tofu and vegetables, finished with spring onions.",
+              "prices": [
+                {
+                  "label": "M",
+                  "amount": "15.00"
+                },
+                {
+                  "label": "L",
+                  "amount": "17.00"
+                }
+              ],
+              "rating": "100% (3)"
+            },
+            {
+              "id": "satay-fried-rice",
+              "name": "Satay Fried Rice",
+              "description": "Fried rice with vegetables and a satay-style flavour, finished with spring onions.",
+              "prices": [
+                {
+                  "label": "M",
+                  "amount": "15.00"
+                },
+                {
+                  "label": "L",
+                  "amount": "17.00"
+                }
+              ],
+              "rating": "80% (5)"
+            },
+            {
+              "id": "combination-fried-rice",
+              "name": "Combination Fried Rice",
+              "description": "A hearty combination fried rice with vegetables, finished with spring onions.",
+              "prices": [
+                {
+                  "label": "M",
+                  "amount": "16.00"
+                },
+                {
+                  "label": "L",
+                  "amount": "18.00"
+                }
+              ],
+              "rating": "95% (24)"
+            },
+            {
+              "id": "roast-pork-fried-rice",
+              "name": "Roast Pork Fried Rice",
+              "description": "Fried rice with roast pork and vegetables, finished with spring onions.",
+              "prices": [
+                {
+                  "label": "M",
+                  "amount": "15.00"
+                },
+                {
+                  "label": "L",
+                  "amount": "17.00"
+                }
+              ],
+              "rating": "100% (8)"
+            },
+            {
+              "id": "shrimp-fried-rice",
+              "name": "Shrimp Fried Rice",
+              "description": "Fried rice with shrimp and vegetables, finished with spring onions.",
+              "prices": [
+                {
+                  "label": "M",
+                  "amount": "16.00"
+                },
+                {
+                  "label": "L",
+                  "amount": "18.00"
+                }
+              ],
+              "rating": "100% (4)"
+            },
+            {
+              "id": "vegetable-fried-rice",
+              "name": "Vegetable Fried Rice",
+              "description": "Fried rice packed with mixed vegetables, finished with spring onions.",
+              "prices": [
+                {
+                  "label": "M",
+                  "amount": "13.00"
+                },
+                {
+                  "label": "L",
+                  "amount": "15.00"
+                }
+              ],
+              "rating": "100% (7)"
+            },
+            {
+              "id": "bacon-egg-fried-rice",
+              "name": "Bacon and Egg Fried Rice",
+              "description": "Classic fried rice with bacon, egg and vegetables, finished with spring onions.",
+              "prices": [
+                {
+                  "label": "M",
+                  "amount": "15.00"
+                },
+                {
+                  "label": "L",
+                  "amount": "17.00"
+                }
+              ]
+            },
+            {
+              "id": "seafood-fried-rice",
+              "name": "Seafood Fried Rice",
+              "description": "Fried rice with mixed seafood and vegetables, finished with spring onions.",
+              "prices": [
+                {
+                  "label": "M",
+                  "amount": "16.00"
+                },
+                {
+                  "label": "L",
+                  "amount": "18.00"
+                }
+              ]
+            },
+            {
+              "id": "curry-fried-rice",
+              "name": "Curry Fried Rice",
+              "description": "Fried rice with vegetables and a warm curry-style flavour, finished with spring onions.",
+              "prices": [
+                {
+                  "label": "M",
+                  "amount": "15.00"
+                },
+                {
+                  "label": "L",
+                  "amount": "17.00"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "sides",
+      "name": "Extras & Side Dishes",
+      "nav_label": "Sides",
+      "mobile_label": "Sides",
+      "description": "",
+      "columns": [
+        {
+          "title": "Sides & Extras",
+          "items": [
+            {
+              "id": "fried-dumplings",
+              "name": "Fried Dumplings",
+              "description": "Six Piece Crispy golden dumplings — perfect as a share plate or side.",
+              "prices": [
+                {
+                  "label": "",
+                  "amount": "7.00"
+                }
+              ],
+              "rating": "76% (56)"
+            },
+            {
+              "id": "large-spring-rolls",
+              "name": "Large Spring Rolls",
+              "description": "Three pieces.",
+              "prices": [
+                {
+                  "label": "",
+                  "amount": "8.00"
+                }
+              ],
+              "rating": "88% (45)"
+            },
+            {
+              "id": "fried-wontons",
+              "name": "Fried Wontons",
+              "description": "Six pieces.",
+              "prices": [
+                {
+                  "label": "",
+                  "amount": "9.00"
+                }
+              ],
+              "rating": "76% (59)"
+            },
+            {
+              "id": "single-chicken-satay-kebab",
+              "name": "Single Chicken Satay Kebab",
+              "description": "Satay Meat on a skwewer",
+              "prices": [
+                {
+                  "label": "",
+                  "amount": "4.00"
+                }
+              ],
+              "rating": "90% (32)"
+            },
+            {
+              "id": "large-vegetarian-spring-rolls",
+              "name": "Large Vegetarian Spring Rolls",
+              "description": "3 x large vege spring rolls",
+              "prices": [
+                {
+                  "label": "",
+                  "amount": "8.00"
+                }
+              ],
+              "rating": "94% (53)"
+            },
+            {
+              "id": "large-curry-rice-rolls",
+              "name": "Large Curry Rice Rolls",
+              "description": "3 x curry rice rolls",
+              "prices": [
+                {
+                  "label": "",
+                  "amount": "7.00"
+                }
+              ],
+              "rating": "96% (28)"
+            },
+            {
+              "id": "rice",
+              "name": "Rice",
+              "description": "Steamed white rice served as a side dish.",
+              "prices": [
+                {
+                  "label": "",
+                  "amount": "5.00"
+                }
+              ],
+              "rating": "100% (10)"
+            },
+            {
+              "id": "extra-peanut-sauce",
+              "name": "Extra Peanut Sauce",
+              "description": "Rich and creamy peanut sauce.",
+              "prices": [
+                {
+                  "label": "",
+                  "amount": "3.00"
+                }
+              ],
+              "rating": "94% (18)"
+            },
+            {
+              "id": "cashew-nuts",
+              "name": "Cashew Nuts",
+              "description": "Crunchy and flavorful nuts.",
+              "prices": [
+                {
+                  "label": "",
+                  "amount": "3.00"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "title": "Beverages",
+          "items": [
+            {
+              "id": "can-of-coke-zero-sugar",
+              "name": "Can of Coke ZERO SUGAR",
+              "description": "",
+              "prices": [
+                {
+                  "label": "",
+                  "amount": "4.50"
+                }
+              ],
+              "rating": "94% (19)"
+            },
+            {
+              "id": "can-of-coke",
+              "name": "Can of Coke",
+              "description": "",
+              "prices": [
+                {
+                  "label": "",
+                  "amount": "4.50"
+                }
+              ],
+              "rating": "100% (33)"
+            },
+            {
+              "id": "can-of-l-p",
+              "name": "Can of L&P",
+              "description": "Classic soft drink.",
+              "prices": [
+                {
+                  "label": "",
+                  "amount": "4.50"
+                }
+              ],
+              "rating": "100% (36)"
+            },
+            {
+              "id": "can-of-sprite",
+              "name": "Can of Sprite",
+              "description": "",
+              "prices": [
+                {
+                  "label": "",
+                  "amount": "4.50"
+                }
+              ],
+              "rating": "100% (16)"
+            },
+            {
+              "id": "bundaberg-lemon-lime-bitters",
+              "name": "Bundaberg Lemon Lime & Bitters",
+              "description": "",
+              "prices": [
+                {
+                  "label": "",
+                  "amount": "6.50"
+                }
+              ],
+              "rating": "100% (10)"
+            },
+            {
+              "id": "bundaberg-ginger-beer",
+              "name": "Bundaberg Ginger Beer",
+              "description": "",
+              "prices": [
+                {
+                  "label": "",
+                  "amount": "6.50"
+                }
+              ],
+              "rating": "100% (9)"
+            },
+            {
+              "id": "can-of-pepsi",
+              "name": "Can of Pepsi",
+              "description": "",
+              "prices": [
+                {
+                  "label": "",
+                  "amount": "4.50"
+                }
+              ],
+              "rating": "100% (5)"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
