@@ -27,7 +27,7 @@
               "rating": "98% (84)",
               "popular_order": 1,
               "image": {
-                "src": "images/noodleSoup.png",
+                "src": "images/noodleSoup.jpg",
                 "alt": "Cambodian noodle soup Kua Teaw with rice noodles and crispy garlic in Dunedin"
               }
             },
@@ -222,7 +222,7 @@
               "rating": "98% (60)",
               "popular_order": 4,
               "image": {
-                "src": "images/laksaCurry.png",
+                "src": "images/laksaCurry.jpg",
                 "alt": "Laksa curry with rice noodles and coconut broth at Dunedin Noodle House"
               }
             }
@@ -257,7 +257,7 @@
               "rating": "97% (212)",
               "popular_order": 2,
               "image": {
-                "src": "images/chickenSatay.png",
+                "src": "images/chickenSatay.jpg",
                 "alt": "Chicken satay with peanut sauce served with rice or noodles in Dunedin"
               }
             },
@@ -274,7 +274,7 @@
               "rating": "96% (76)",
               "popular_order": 3,
               "image": {
-                "src": "images/satayBurger.png",
+                "src": "images/satayBurger.jpg",
                 "alt": "Meurs satay burger with peanut satay sauce on a sesame bun in Dunedin"
               }
             },

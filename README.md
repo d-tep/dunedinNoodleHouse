@@ -67,9 +67,11 @@ Website edits do **not** update your Uber Eats listing.
 ## Featured carousel
 
 The Most Popular carousel uses dishes with `popular_order`, in that order. With
-two or more featured dishes it advances every five seconds while visible.
+two or more featured dishes it advances by one dish every ten seconds while
+visible. Desktop screens (900px and wider) show two dishes side by side; smaller
+screens show one. The first dish appears beside the last when wrapping around.
 Visitors can swipe horizontally or choose a dish using its
-dot below the image. The active dot highlights the currently displayed dish.
+dot below the image. The active dot highlights the first displayed dish.
 Hovering pauses rotation temporarily; focus, manual navigation, and swiping stop
 it for the rest of the page visit. It also pauses in background tabs. Reduced-motion
 preferences disable autoplay by default and remove slide animation.
@@ -86,6 +88,24 @@ static site** manually from the Actions tab.
 The workflow tests the menu, builds `_site/`, and deploys **only** that static
 output. Pull requests are tested and built but never deployed.
 The existing custom domain in [CNAME](CNAME) is included in the output.
+
+## SEO and safety checks
+
+The workflow runs [SEO regression tests](tests/test_seo.py) on every push and pull
+request alongside the menu tests. They check titles/descriptions, one primary
+heading, language/viewport, canonical/social/sitemap URLs, restaurant contact
+and opening-hours metadata, image alt text and a 300 KB image budget, new-tab
+link isolation, and a non-indexable 404 page. Menu tests also verify HTML/JSON
+escaping and that structured prices match the visible menu.
+
+Food photos use compressed JPEG copies; the original PNGs are kept as source
+assets. When adding photos, optimise them before changing `image.src` in the
+menu. Featured photos are lazy-loaded, while the logo loads immediately.
+
+These are local regression checks, not a Lighthouse score or a guarantee of
+rankings or rich results. Keep the published hours, prices, address, and Google
+Business Profile accurate. GitHub Pages controls HTTP response headers; header
+policies such as CSP and HSTS cannot be configured using a `_headers` file here.
 
 ## Local preview and tests
 

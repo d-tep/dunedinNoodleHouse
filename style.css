@@ -52,6 +52,7 @@ body {
 
 .hero-center .logo {
     max-width: 150px;
+    height: auto;
 }
 
 .hero-center h1 {
@@ -355,6 +356,17 @@ body {
 
 /* Menu sections */
 
+.restaurant-intro {
+    padding: 28px 20px;
+    text-align: center;
+    background: var(--light-gray);
+}
+
+.restaurant-intro h2,
+.restaurant-intro a {
+    color: var(--primary-blue);
+}
+
 .menu-section {
     padding: 60px 20px;
     text-align: center;
@@ -434,6 +446,28 @@ body {
 
 .is-carousel .menu-item img {
     height: clamp(180px, 40vw, 300px);
+}
+
+.is-carousel .carousel-wrap-slide {
+    display: none;
+}
+
+@media (min-width: 900px) {
+    .popular-carousel.is-carousel {
+        max-width: 1200px;
+    }
+
+    .is-carousel .carousel-track {
+        gap: 20px;
+    }
+
+    .is-carousel .menu-item {
+        flex-basis: calc((100% - 20px) / 2);
+    }
+
+    .is-carousel .carousel-wrap-slide {
+        display: flex;
+    }
 }
 
 .carousel-controls:not([hidden]) {

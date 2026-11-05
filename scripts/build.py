@@ -120,7 +120,7 @@ def render_popular(items):
         price = price_text(item["prices"][-1])
         rating = f" &bull; {escape(item['rating'])}" if item.get("rating") else ""
         cards.append(f"""<div class="menu-item" id="item-{item['id']}-popular">
-    <img src="{escape(image['src'])}" alt="{escape(image['alt'])}">
+    <img src="{escape(image['src'])}" alt="{escape(image['alt'])}" loading="lazy" decoding="async">
     <h3>{escape(item['name'])}</h3>
     <p>{description(item)}</p>
     <span>{price}{rating}</span>

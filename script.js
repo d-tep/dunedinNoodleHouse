@@ -11,6 +11,7 @@
     const dots = Array.from(controls.querySelectorAll('.carousel-dot'));
     const viewport = carousel.querySelector('.carousel-viewport');
     const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
+    const desktop = window.matchMedia('(min-width: 900px)');
     let index = 0;
     let playing = !reducedMotion.matches;
     let hovered = false;
@@ -24,17 +25,22 @@
             timer = setTimeout(() => {
                 show(index + 1);
                 schedule();
-            }, 5000);
+            }, 10000);
         }
     }
 
     function show(next) {
         index = (next + slides.length) % slides.length;
-        track.style.transform = `translateX(-${index * 100}%)`;
+        const step = slides[1].getBoundingClientRect().left - slides[0].getBoundingClientRect().left;
+        track.style.transform = `translateX(-${index * step}px)`;
         slides.forEach((slide, position) => {
-            slide.setAttribute('aria-hidden', String(position !== index));
-            slide.inert = position !== index;
+            const shown = position === index || (desktop.matches && position === index + 1);
+            slide.setAttribute('aria-hidden', String(!shown));
+            slide.inert = !shown;
         });
+        const wrapShown = desktop.matches && index === slides.length - 1;
+        wrapSlide.setAttribute('aria-hidden', String(!wrapShown));
+        wrapSlide.inert = !wrapShown;
         dots.forEach((dot, position) => {
             dot.setAttribute('aria-current', String(position === index));
         });
@@ -62,11 +68,18 @@
         slide.setAttribute('aria-label', `${position + 1} of ${slides.length}`);
         slide.querySelector('img').draggable = false;
     });
+    // Keep the first dish beside the last when two cards are visible.
+    const wrapSlide = slides[0].cloneNode(true);
+    wrapSlide.removeAttribute('id');
+    wrapSlide.querySelectorAll('[id]').forEach(element => element.removeAttribute('id'));
+    wrapSlide.classList.add('carousel-wrap-slide');
+    track.append(wrapSlide);
     controls.hidden = false;
     show(0);
     setPlaying(playing);
     showLinkedSlide();
     window.addEventListener('hashchange', showLinkedSlide);
+    new ResizeObserver(() => show(index)).observe(viewport);
 
     dots.forEach((dot, position) => {
         dot.addEventListener('click', () => {
